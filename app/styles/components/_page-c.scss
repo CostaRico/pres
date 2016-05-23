@@ -1,0 +1,25 @@
+.page{
+  height: 95vh;
+
+  &:nth-child(odd){
+    background: aliceblue;
+  }
+  &--first{
+
+    width: 100%;
+    display: table;
+
+    .page__content{
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  &__map{
+    height: 40vh;
+    margin-bottom: 5vh;
+  }
+
+
+}
