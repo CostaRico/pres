@@ -1,14 +1,301 @@
 @import "vendor/normalizer";
 @import "vendor/bourbon/app/assets/stylesheets/bourbon";
 @import "vendor/bourbon-neat/app/assets/stylesheets/neat";
+@import "fonts";
+
 $font-stack-system: 15px;
 
+$header-height: 85px;
+$h1-size: 65px;
+$h1-small-size: 45px;
+$h2-size: 25px;
+$active-color: #3AAAEE;
+$border-color: #EEEEEE;
+
 @import "vendor/bitters/base";
+@import "mixins";
 
 @import "components/page-c";
 @import "components/map";
+@import "components/first-page";
 
-h1.big{
-  font-size: 100px;
-  font-weight: 300;
+.class-circle {
+  width: 240px;
+  height: 240px;
+}
+
+.presentation {
+  max-width: 1500px;
+  margin: 0 auto;
+  &__header {
+    padding: 0 50px;
+    line-height: $header-height;
+    height: $header-height;
+  }
+  &__first-page {
+    height: 1000px;
+  }
+  &__slide {
+    padding: 0 10vh;
+    margin-bottom: 10vh;
+    &.gray{
+      background: #F7F7F7;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+  }
+}
+
+.presentation__slide:last-child{
+  margin-bottom: 0;
+}
+.presentation-header {
+  @include clearfix;
+  &__logo, &__contacts {
+    float: left;
+  }
+  &__logo {
+    width: 150px;
+    border-right: 1px solid #EEEEEE;
+    img {
+      width: 100px;
+      vertical-align: middle;
+    }
+  }
+  &__contacts {
+
+    height: 100%;
+    .text{
+      padding-left: 50px;
+      font-size: 16px;
+    }
+  }
+  &__menu {
+    float: right;
+  }
+  .header-menu {
+    @include clearfix;
+    list-style: none;
+    li {
+      float: right;
+      display: inline;
+      margin-left: 40px;
+      &.active{
+        color: $active-color;
+      }
+    }
+  }
+}
+
+.building-view {
+  &__h1 {
+    @include clearfix;
+    font-size: $h1-small-size;
+    .decor{
+      float: left;
+      width: 4px;
+      color: #3AAAEE;
+      height: 32px;
+      background: #3AAAEE;
+      position: relative;
+      top: 16px;
+    }
+    .text{
+      float: left;
+      padding-left: 15px;
+    }
+  }
+  &__p{
+    padding-left: 19px;
+
+  }
+  &__text{
+    font-size: 16px;
+    width: 50%;
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+  }
+  &__row {
+    position: relative;
+    @include clearfix;
+    min-height: 400px;
+    &:nth-child(1) {
+
+    }
+
+    margin-bottom: 2vh;
+  }
+  &__text, &__map {
+    padding-left: 2vh;
+  }
+  &__img, &__map {
+    overflow: hidden;
+    float: left;
+    width: 50%;
+    height: 100%;
+  }
+  &__map {
+    height: 30vw;
+  }
+  &__img{
+    object-fit: cover;
+
+  }
+  &__img.vertical {
+    margin-left: 15%;
+    width: 35%;
+    min-height: 570px;
+    max-width:610px;
+  }
+}
+
+.second-page-props{
+  $cur-height: 132px;
+  height: $cur-height;
+
+
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  &__prop{
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+}
+
+.building-prop{
+  &__wrap{
+    position: absolute;
+    top: 50%;
+    margin-top: -45px;
+    left: 0;
+    height: 90px;
+    line-height: 90px;
+    border-right: 1px solid $border-color;
+    width: 100%;
+    text-align: center;
+  }
+  &__icon, &__text{
+    display: inline-block;
+    line-height: 1em;
+  }
+  &__icon{
+    position: relative;
+    top: 10px;
+  }
+
+
+  &:last-child{
+    .building-prop__wrap{
+      border-right: none;
+    }
+  }
+}
+.bc-gallery{
+  &__thumbs{
+    a:nth-child(1){
+      img{
+        object-fit: cover;
+        width: 100%;
+        max-height: inherit;
+      }
+      width: 100%;
+      max-height: 800px;
+      height: inherit;
+      display: block;;
+    }
+
+  }
+}
+.thumbs{
+
+  &__row{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  &__el{
+    img{
+      height: 150px;
+      width: 150px;
+      object-fit: cover;
+    }
+  }
+}
+
+.building-features{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__feature{
+
+
+    text-align: center;
+    background: white;
+    border-top: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    height: 240px;
+    width: 33%;
+  }
+}
+.feature{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1-decored{
+  font-size: 45px;
+  @include clearfix;
+  .decor{
+    float: left;
+    width: 4px;
+    color: #3AAAEE;
+    height: 32px;
+    background: #3AAAEE;
+    position: relative;
+    top: 16px;
+  }
+  .text{
+    float: left;
+    padding-left: 15px;
+  }
+}
+
+.offices-table{
+  display: table;
+  width: 100%;
+  &__header, &__row{
+    display: table-row;
+
+  }
+  &__td{
+    height: 55px;
+    line-height: 55px;
+    display: table-cell;
+    border-bottom: 1px solid $border-color;
+  }
+  &__comment{
+    text-align: center;
+  }
+}
+
+.contacts-info{
+  &__table{
+    border: none;
+    td{
+      border: none;
+
+    }
+  }
 }

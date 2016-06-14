@@ -14,6 +14,7 @@ export default Ember.Component.extend({
         center: [55.76, 37.64],
         zoom: 7
       });
+      myMap.behaviors.disable("scrollZoom");
     }
   }
 });

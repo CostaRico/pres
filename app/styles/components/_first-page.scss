@@ -1,0 +1,24 @@
+.first-page{
+  padding-top: 50px !important;
+  position: relative;
+  &__h1{
+    font-size: $h1-size;
+    line-height: 70px;
+    color: #222222;
+    font-family: MuseoSansCyrl-700;
+
+  }
+  &__h2{
+    font-size: $h2-size;
+    text-transform: uppercase;
+  }
+  .class-circle{
+
+    position: absolute;
+    bottom: -115px;
+    right: 0;
+    &__text{
+      text-align: center;
+    }
+  }
+}

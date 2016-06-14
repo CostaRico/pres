@@ -43,5 +43,52 @@ export default Ember.Controller.extend({
       title: 'whooa'
     }
   ],
+  init: function () {
+    this._super();
+    Ember.run.schedule("afterRender", this, function () {
+      this.send("afterRender");
+    });
+  },
+
+  setBackground(element, imgUrl){
+    let prefixes = ["-webkit-background-size",
+      "-moz-background-size",
+      "-o-background-size",
+      "background-size"];
+    prefixes.forEach(el=>{
+      element.style[el] = 'cover';
+    });
+    element.style["background"] = `url(${imgUrl}) no-repeat center center`;
+  },
+
+  actions: {
+    afterRender(){
+      this.send('setBackgrounds');
+    },
+    setBackgrounds(){
+
+      //Main image
+      let firstPage = document.querySelectorAll('div.first-page')[0];
+      let imgUrl = this.get('model.backgroundPhoto');
+      this.setBackground(firstPage, imgUrl);
+
+      //Building-view images
+     /* let firstBuilingImageEl = document.querySelectorAll('div.building-view__img')[0];
+      let secondBuilingImageEl = document.querySelectorAll('div.building-view__img')[1];
+
+      let firstBuildingImageUrl = this.get('model.building.firstImg');
+      let secondBuildingImageUrl = this.get('model.building.secondImg');
+
+
+      this.setBackground(firstBuilingImageEl, firstBuildingImageUrl);
+      this.setBackground(secondBuilingImageEl, secondBuildingImageUrl);*/
+
+
+
+      //this.setBackground(firstPage, imgUrl);
+
+
+    }
+  }
 });
 

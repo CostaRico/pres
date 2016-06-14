@@ -20,5 +20,10 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  app.import('./vendor/photoswipe/photoswipe.js');
+  app.import('./vendor/photoswipe/photoswipe-ui-default.js');
+  app.import('./vendor/photoswipe/photoswipe.css');
+  app.import('./vendor/photoswipe/default-skin/default-skin.css');
+
   return app.toTree();
 };

@@ -2,7 +2,9 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "ymaps",
+    "Ember"
   ],
   "browser": true,
   "boss": true,
