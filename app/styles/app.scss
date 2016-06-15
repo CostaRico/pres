@@ -155,6 +155,7 @@ body{
   &__row {
     position: relative;
     @include clearfix;
+    overflow: hidden;
     min-height: 400px;
     max-height: 40vh;
     &:nth-child(1) {
