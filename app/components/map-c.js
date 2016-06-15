@@ -12,7 +12,7 @@ export default Ember.Component.extend({
     function init(){
       myMap = new ymaps.Map(cont, {
         center: [55.76, 37.64],
-        zoom: 7
+        zoom: 15
       });
       myMap.behaviors.disable("scrollZoom");
     }
