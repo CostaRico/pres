@@ -11,6 +11,7 @@ $h1-small-size: 45px;
 $h2-size: 25px;
 $active-color: #3AAAEE;
 $border-color: #EEEEEE;
+$bg-color: #F7F7F7;
 
 @import "vendor/bitters/base";
 @import "mixins";
@@ -19,6 +20,13 @@ $border-color: #EEEEEE;
 @import "components/map";
 @import "components/first-page";
 
+
+body{
+  background: $bg-color;
+}
+.presentation{
+  background: white;
+}
 .class-circle {
   width: 240px;
   height: 240px;

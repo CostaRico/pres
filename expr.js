@@ -6,3 +6,6 @@ let server = new FastBootAppServer({
 });
 
 server.start();
+
+
+//PORT=2323 forever start server.js 
