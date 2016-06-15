@@ -156,6 +156,7 @@ body{
     position: relative;
     @include clearfix;
     min-height: 400px;
+    max-height: 40vh;
     &:nth-child(1) {
 
     }
@@ -173,6 +174,7 @@ body{
   }
   &__map {
     height: 30vw;
+    max-height: 35vh;
   }
   &__img{
     object-fit: cover;
