@@ -51,14 +51,15 @@ export default Ember.Controller.extend({
   },
 
   setBackground(element, imgUrl){
-    let prefixes = ["-webkit-background-size",
+    /*let prefixes = ["-webkit-background-size",
       "-moz-background-size",
       "-o-background-size",
       "background-size"];
     prefixes.forEach(el=>{
-      element.style[el] = 'cover';
-    });
+      element.style[el] = '100%';
+    });*/
     element.style["background"] = `url(${imgUrl}) no-repeat center center`;
+    element.style.backgroundSize = '100%';
   },
 
   actions: {

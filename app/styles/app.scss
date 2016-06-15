@@ -4,14 +4,18 @@
 @import "fonts";
 
 $font-stack-system: 15px;
-
+$font-color: #222222;
 $header-height: 85px;
 $h1-size: 65px;
 $h1-small-size: 45px;
 $h2-size: 25px;
 $active-color: #3AAAEE;
 $border-color: #EEEEEE;
+//$bg-color: #bebebe;
 $bg-color: #F7F7F7;
+$bg-border: #dedede;
+$phone-color: #333333;
+$light-active:#55B6F0;
 
 @import "vendor/bitters/base";
 @import "mixins";
@@ -20,12 +24,25 @@ $bg-color: #F7F7F7;
 @import "components/map";
 @import "components/first-page";
 
+.phone{
+  font-family: MuseoSansCyrl-700;
+
+  color: $phone-color;
+  border-bottom: 1px dashed $phone-color;
+  &:hover{
+    color: $action-color;
+    border-bottom: 1px dashed $action-color;
+
+  }
+}
 
 body{
   background: $bg-color;
 }
 .presentation{
   background: white;
+  border-left: 1px solid $bg-border;
+  border-right: 1px solid $bg-border;
 }
 .class-circle {
   width: 240px;
@@ -39,9 +56,6 @@ body{
     padding: 0 50px;
     line-height: $header-height;
     height: $header-height;
-  }
-  &__first-page {
-    height: 1000px;
   }
   &__slide {
     padding: 0 10vh;
@@ -71,6 +85,9 @@ body{
       vertical-align: middle;
     }
   }
+  &__phone{
+    @extend .phone;
+  }
   &__contacts {
 
     height: 100%;
@@ -89,8 +106,16 @@ body{
       float: right;
       display: inline;
       margin-left: 40px;
-      &.active{
+      a{
+        color: $font-color;
+      }
+      a:hover{
         color: $active-color;
+      }
+      &.active{
+        a{
+          color: $active-color;
+        }
       }
     }
   }
@@ -283,27 +308,84 @@ body{
 .offices-table{
   display: table;
   width: 100%;
+  &__header{
+    td{
+      font-family: MuseoSansCyrl-700;
+    }
+  }
+  &__row{
+    td{
+      font-family: MuseoSansCyrl-500;
+    }
+    td:nth-child(1){
+      color: $light-active;
+    }
+  }
   &__header, &__row{
     display: table-row;
 
   }
   &__td{
-    height: 55px;
-    line-height: 55px;
+    padding: 0;
+    height: 50px;
+    line-height: 50px;
     display: table-cell;
     border-bottom: 1px solid $border-color;
   }
   &__comment{
     text-align: center;
+
+  }
+
+  &__comment{
+    td:nth-child(2){
+      text-align: center;
+      padding-left: 10px;
+    }
+    td:nth-child(1){
+      text-align: right;
+      color: $font-color;
+    }
   }
 }
 
 .contacts-info{
+  width: calc(100% / 3 * 2);
+  &__email-manager{
+    display: flex;
+    flex-direction: row;
+  }
+  &__manager{
+    padding-left: 50px;
+    text-align: left;
+  }
+  &__email{
+    text-align: left;
+  }
+  &__phone{
+    margin-bottom: 40px;
+  }
   &__table{
+    border-collapse: collapse;
+    .expand{
+      width: 99%;
+    }
+    width: 50%;
     border: none;
-    td{
+    td:not(.expand){
       border: none;
+      white-space: nowrap;
 
     }
+  }
+}
+.contacts{
+
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  &__photo{
+    width: calc(100% / 3 * 1);
+    display: inline-block;
   }
 }

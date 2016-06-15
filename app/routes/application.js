@@ -7,7 +7,7 @@ export default Ember.Route.extend({
       h1: 'Коммерческая<br /> недвижимость в Москве',
       h2: 'презентация для компании «Альфа-групп»',
       "bc-class": 'A',
-      backgroundPhoto: 'http://www.layoverguide.com/wp-content/uploads/2010/01/Moscow-city-center-Russia.jpg',
+      backgroundPhoto: '/main_pic.png',
       building: {
         name: 'МФК Башня Федерация',
         shortDescription: `Бизнес-центр «Башня Федерация» &mdash; самый известный объект в ММДЦ «Москва-Сити». Большую известность
@@ -23,7 +23,8 @@ export default Ember.Route.extend({
         Бла-бла бла бла бла Бла-бла бла бла бла Бла-бла бла бла бла Бла-бла бла бла бла `,
         firstImg: 'http://of.ru/images/Object26/7724f42572-2.jpg',
         secondImg: 'http://www.layoverguide.com/wp-content/uploads/2010/01/Moscow-city-center-Russia.jpg'
-      }
+      },
+      managerPhoto: '/agent.png'
 
     });
   }
