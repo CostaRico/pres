@@ -1,0 +1,79 @@
+
+.second-page-props{
+  $cur-height: 132px;
+  @include clearfix;
+  &__pare{
+    @include clearfix;
+    border-bottom: none;
+
+    float: left;
+    width: 50%;
+    @include media($big-phone) {
+      width: 100%;
+      border-bottom: 1px solid $border-color;
+    }
+    &:last-child{
+      border-bottom: none;
+    }
+
+    &:last-child{
+      .second-page-props__prop:last-child{
+        .building-prop__wrap:last-child{
+          border-right: none;
+        }
+      }
+    }
+
+
+  }
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  &__prop{
+    height: $cur-height;
+    float: left;
+    width: 50%;
+    @include media($big-phone) {
+      width: 50%;
+
+      &:last-child{
+        .building-prop__wrap{
+          border-right: none;
+        }
+      }
+    }
+
+
+    position: relative;
+  }
+
+}
+
+.building-prop{
+
+  &__wrap{
+    position: absolute;
+    top: 50%;
+    margin-top: -45px;
+    left: 0;
+    height: 90px;
+    line-height: 90px;
+    @include media($big-phone) {
+      height: 100px;
+      line-height: 100px;
+    }
+    border-right: 1px solid $border-color;
+    width: 100%;
+    text-align: center;
+  }
+  &__icon, &__text{
+    display: inline-block;
+    line-height: 1em;
+  }
+  &__icon{
+    position: relative;
+    top: 10px;
+  }
+
+
+
+}

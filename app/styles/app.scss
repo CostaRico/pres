@@ -17,12 +17,24 @@ $bg-border: #dedede;
 $phone-color: #333333;
 $light-active:#55B6F0;
 
+
+/*Break points*/
+$tablet: new-breakpoint(max-width 1260px 4);
+$small-tablet: new-breakpoint(max-width 910px 4);
+$big-phone: new-breakpoint(max-width 780px 4);
+$phone: new-breakpoint(max-width 780px 4);
+/*/Break points*/
+
+
 @import "vendor/bitters/base";
 @import "mixins";
 
 @import "components/page-c";
 @import "components/map";
 @import "components/first-page";
+@import "components/hamb";
+@import "components/mobile-menu";
+@import "components/building-props";
 
 .phone{
   font-family: MuseoSansCyrl-700;
@@ -43,6 +55,18 @@ body{
   background: white;
   border-left: 1px solid $bg-border;
   border-right: 1px solid $bg-border;
+  &.blur{
+    $blur: 5px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-filter: blur($blur);
+    -moz-filter: blur($blur);
+    -o-filter: blur($blur);
+    -ms-filter: blur($blur);
+    filter: blur($blur);
+    opacity: 0.95;
+  }
 }
 .class-circle {
   width: 240px;
@@ -58,13 +82,17 @@ body{
     height: $header-height;
   }
   &__slide {
-    padding: 0 10vh;
-    margin-bottom: 10vh;
+    padding: 0 50px;
+    margin-bottom: 50px;
+    @include media($big-phone) {
+      padding: 0 10px;
+    }
     &.gray{
       background: #F7F7F7;
       padding-top: 50px;
       padding-bottom: 50px;
     }
+
 
   }
 }
@@ -119,6 +147,46 @@ body{
       }
     }
   }
+
+  .header-menu-mobile{
+    display: none;
+    height: $header-height;
+    line-height: $header-height;
+    &__switcher{
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  /* responsive*/
+  @include media($tablet) {
+    .header-menu{
+      display: none;
+    }
+    .header-menu-mobile{
+      display: block;
+    }
+  }
+
+  @include media($small-tablet) {
+    &__name{
+      display: none;
+    }
+  }
+  @include media($big-phone) {
+    &__post{
+      display: none;
+    }
+    .mdash{
+      display: none;
+    }
+  }
+  @include media($phone){
+    &__contacts{
+      display: none;
+    }
+  }
+  /*/responsive*/
+
 }
 
 .building-view {
@@ -133,15 +201,40 @@ body{
       background: #3AAAEE;
       position: relative;
       top: 16px;
+      @include media($tablet) {
+        top: 5px !important;
+      }
+      @include media($small-tablet) {
+
+      }
     }
     .text{
       float: left;
       padding-left: 15px;
+      @include media($tablet) {
+        font-size: 28px;
+      }
+      @include media($small-tablet) {
+        font-size: 24px;
+
+      }
     }
   }
   &__p{
     padding-left: 19px;
-
+    @include media($big-phone) {
+      text-align: center;
+    }
+  }
+  &__p-decor{
+    display: none;
+    @include media($big-phone) {
+      display: block;
+      height: 4px;
+      background: $active-color;
+      width: 5vw;
+      margin: 1.1em auto 0 auto;
+    }
   }
   &__text{
     font-size: 16px;
@@ -151,18 +244,50 @@ body{
     top: 50%;
     left: 50%;
     transform: translateY(-50%);
+
+
+    @include media($big-phone) {
+      margin-top: 100px;
+      width: 100%;
+      display: block;
+      position: static;
+      .decor{
+        display: none;
+      }
+      .h1-decored{
+        .text{
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
   }
   &__row {
     position: relative;
     @include clearfix;
     overflow: hidden;
-    min-height: 400px;
+    /*min-height: 400px;
     max-height: 40vh;
-    &:nth-child(1) {
+    margin-bottom: 2vh;*/
+    height: 400px;
+    margin-bottom: 20px;
 
+    @include media($tablet) {
+      height: 300px;
+      margin-bottom: 15px;
+    }
+    @include media($small-tablet) {
+      height: 250px;
+      margin-bottom: 10px;
+      &.second-row{
+        height: 350px;
+
+      }
+    }
+    @include media($big-phone) {
     }
 
-    margin-bottom: 2vh;
+
   }
   &__text, &__map {
     padding-left: 2vh;
@@ -174,11 +299,18 @@ body{
     height: 100%;
   }
   &__map {
-    height: 30vw;
     max-height: 35vh;
+    @include media($big-phone) {
+      width: 100%;
+      height: inherit;
+      max-height: none;
+    }
   }
   &__img{
     object-fit: cover;
+    @include media($big-phone) {
+        display: none;
+    }
 
   }
   &__img.vertical {
@@ -189,53 +321,6 @@ body{
   }
 }
 
-.second-page-props{
-  $cur-height: 132px;
-  height: $cur-height;
-
-
-  border-top: 1px solid $border-color;
-  border-bottom: 1px solid $border-color;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  position: relative;
-  &__prop{
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-
-}
-
-.building-prop{
-  &__wrap{
-    position: absolute;
-    top: 50%;
-    margin-top: -45px;
-    left: 0;
-    height: 90px;
-    line-height: 90px;
-    border-right: 1px solid $border-color;
-    width: 100%;
-    text-align: center;
-  }
-  &__icon, &__text{
-    display: inline-block;
-    line-height: 1em;
-  }
-  &__icon{
-    position: relative;
-    top: 10px;
-  }
-
-
-  &:last-child{
-    .building-prop__wrap{
-      border-right: none;
-    }
-  }
-}
 .bc-gallery{
   &__thumbs{
     a:nth-child(1){

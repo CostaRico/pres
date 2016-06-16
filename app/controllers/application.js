@@ -3,6 +3,7 @@
  */
 
 export default Ember.Controller.extend({
+  isMobileMenuOpened: false,
   items: [
     {
       src: 'http://placekitten.com/g/600/400',
@@ -59,6 +60,7 @@ export default Ember.Controller.extend({
       element.style[el] = '100%';
     });*/
     element.style["background"] = `url(${imgUrl}) no-repeat center center`;
+    //element.style["background"] = `url(${imgUrl}) top center`;
     element.style.backgroundSize = '100%';
   },
 

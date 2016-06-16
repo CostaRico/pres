@@ -4,7 +4,7 @@
 export default Ember.Route.extend({
   model(){
     return Ember.Object.create({
-      h1: 'Коммерческая<br /> недвижимость в Москве',
+      h1: 'Коммерческая<br /> недвижимость в&nbsp;Москве',
       h2: 'презентация для компании «Альфа-групп»',
       "bc-class": 'A',
       backgroundPhoto: '/main_pic.png',

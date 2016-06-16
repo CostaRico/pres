@@ -8,11 +8,17 @@
     line-height: 70px;
     color: #222222;
     font-family: MuseoSansCyrl-700;
-
+    @include media($big-phone) {
+      font-size: $h1-small-size;
+      text-align: center;
+    }
   }
   &__h2{
     font-size: $h2-size;
     text-transform: uppercase;
+    @include media($big-phone) {
+      text-align: center;
+    }
   }
   .class-circle{
 
@@ -21,6 +27,12 @@
     right: 0;
     &__text{
       text-align: center;
+    }
+
+    @include media($big-phone) {
+      left: 0;
+      right: 0;
+      margin: 0 auto;
     }
   }
 }

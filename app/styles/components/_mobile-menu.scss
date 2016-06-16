@@ -1,0 +1,30 @@
+.mobile-menu{
+  display: none;
+  &.opened{
+    display: block;
+  }
+  &__hamb{
+    position: absolute;
+    right: 50px;
+    height: $header-height;
+    line-height: $header-height;
+    >div{
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+  &__list{
+    li{
+      font-size: 25px;
+      text-transform: uppercase;
+      background-color: white;
+      border-bottom: 1px solid $border-color;
+      text-align: center;
+      height: 100px;
+      line-height: 100px;
+    }
+  }
+}
