@@ -1,5 +1,7 @@
 .first-page{
-
+  @include media($phone) {
+    margin-bottom: 100px !important;
+  }
   padding-top: 50px !important;
   position: relative;
   height: 95vh;
@@ -36,3 +38,5 @@
     }
   }
 }
+
+

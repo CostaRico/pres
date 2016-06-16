@@ -22,7 +22,7 @@ $light-active:#55B6F0;
 $tablet: new-breakpoint(max-width 1260px 4);
 $small-tablet: new-breakpoint(max-width 910px 4);
 $big-phone: new-breakpoint(max-width 780px 4);
-$phone: new-breakpoint(max-width 780px 4);
+$phone: new-breakpoint(max-width 400px 4);
 /*/Break points*/
 
 
@@ -207,9 +207,8 @@ body{
       @include media($tablet) {
         top: 5px !important;
       }
-      @include media($small-tablet) {
 
-      }
+
     }
     .text{
       float: left;
@@ -364,7 +363,17 @@ body{
 
 
 .h1-decored{
+
   font-size: 45px;
+  @include media($phone) {
+    font-size: 25px;
+    .text{
+      text-align: center;
+
+      width: 100%;
+    }
+
+  }
   @include clearfix;
   .decor{
     float: left;
@@ -374,6 +383,10 @@ body{
     background: #3AAAEE;
     position: relative;
     top: 16px;
+
+    @include media($phone) {
+      display: none;
+    }
   }
   .text{
     float: left;
