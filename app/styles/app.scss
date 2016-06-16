@@ -35,6 +35,8 @@ $phone: new-breakpoint(max-width 780px 4);
 @import "components/hamb";
 @import "components/mobile-menu";
 @import "components/building-props";
+@import "components/features";
+@import "components/contacts";
 
 .phone{
   font-family: MuseoSansCyrl-700;
@@ -358,26 +360,7 @@ body{
   }
 }
 
-.building-features{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  &__feature{
 
-
-    text-align: center;
-    background: white;
-    border-top: 1px solid $border-color;
-    border-right: 1px solid $border-color;
-    height: 240px;
-    width: 33%;
-  }
-}
-.feature{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .h1-decored{
   font-size: 45px;
@@ -441,43 +424,4 @@ body{
   }
 }
 
-.contacts-info{
-  width: calc(100% / 3 * 2);
-  &__email-manager{
-    display: flex;
-    flex-direction: row;
-  }
-  &__manager{
-    padding-left: 50px;
-    text-align: left;
-  }
-  &__email{
-    text-align: left;
-  }
-  &__phone{
-    margin-bottom: 40px;
-  }
-  &__table{
-    border-collapse: collapse;
-    .expand{
-      width: 99%;
-    }
-    width: 50%;
-    border: none;
-    td:not(.expand){
-      border: none;
-      white-space: nowrap;
 
-    }
-  }
-}
-.contacts{
-
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  &__photo{
-    width: calc(100% / 3 * 1);
-    display: inline-block;
-  }
-}

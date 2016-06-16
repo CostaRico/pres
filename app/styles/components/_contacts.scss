@@ -1,0 +1,54 @@
+.contacts-info{
+  width: calc(100% / 3 * 2);
+  &__email-manager{
+    display: flex;
+    flex-direction: row;
+  }
+  &__manager{
+    padding-left: 50px;
+    text-align: left;
+  }
+  &__email{
+    text-align: left;
+  }
+  &__phone{
+    margin-bottom: 40px;
+  }
+  &__table{
+    border-collapse: collapse;
+    .expand{
+      width: 99%;
+    }
+    width: 50%;
+    border: none;
+    td:not(.expand){
+      border: none;
+      white-space: nowrap;
+
+    }
+  }
+}
+.contacts{
+
+  &__desktop{
+    display: block;
+    @include media($big-phone) {
+      display: none;
+    }
+  }
+
+  &__mobile{
+    display: none;
+    @include media($big-phone) {
+      display: block;
+    }
+  }
+
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  &__photo{
+    width: calc(100% / 3 * 1);
+    display: inline-block;
+  }
+}

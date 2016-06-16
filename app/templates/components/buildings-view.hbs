@@ -1,0 +1,19 @@
+<div class="second-page__building building-view">
+    <div class="building-view__row">
+        <img class="building-view__img" src="{{model.building.firstImg}}"/>
+        <div class="building-view__text">
+            <div class="building-view__h1 h1-decored">
+                <div class="decor"></div>
+                <div class="text">{{model.building.name}}</div>
+            </div>
+            <div class="building-view__p">{{{model.building.shortDescription}}}</div>
+            <div class="building-view__p-decor"></div>
+        </div>
+    </div>
+    <div class="building-view__row second-row">
+        <img class="building-view__img vertical" src="{{model.building.secondImg}}"/>
+        <div class="building-view__map">
+          {{map-c}}
+        </div>
+    </div>
+</div>

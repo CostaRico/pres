@@ -1,0 +1,31 @@
+.building-features {
+  /*display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;*/
+  @include clearfix;
+  &__feature {
+    float: left;
+    text-align: center;
+    background: white;
+    border-top: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    height: 240px;
+    width: 33%;
+
+    @include media($big-phone) {
+      width: 50%;
+    }
+  }
+}
+.feature{
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  position: relative;
+  &__feature-wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
