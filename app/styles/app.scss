@@ -37,6 +37,7 @@ $phone: new-breakpoint(max-width 780px 4);
 @import "components/building-props";
 @import "components/features";
 @import "components/contacts";
+@import "components/offices-table";
 
 .phone{
   font-family: MuseoSansCyrl-700;
@@ -380,48 +381,5 @@ body{
   }
 }
 
-.offices-table{
-  display: table;
-  width: 100%;
-  &__header{
-    td{
-      font-family: MuseoSansCyrl-700;
-    }
-  }
-  &__row{
-    td{
-      font-family: MuseoSansCyrl-500;
-    }
-    td:nth-child(1){
-      color: $light-active;
-    }
-  }
-  &__header, &__row{
-    display: table-row;
-
-  }
-  &__td{
-    padding: 0;
-    height: 50px;
-    line-height: 50px;
-    display: table-cell;
-    border-bottom: 1px solid $border-color;
-  }
-  &__comment{
-    text-align: center;
-
-  }
-
-  &__comment{
-    td:nth-child(2){
-      text-align: center;
-      padding-left: 10px;
-    }
-    td:nth-child(1){
-      text-align: right;
-      color: $font-color;
-    }
-  }
-}
 
 
