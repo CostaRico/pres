@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   actions:{
     setOpacity(){
       let realY = window.pageYOffset;
-      let ourY = parseFloat(realY/5);
+      let ourY = parseFloat(realY/8);
       let defaultOpacity = 1.00;
       let opacity = defaultOpacity - ((ourY+40)/100)+0.6;
       /*console.log('========');
