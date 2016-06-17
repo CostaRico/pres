@@ -1,12 +1,11 @@
 .first-page{
-
+  padding-top: calc(#{$header-height} + 50px) !important;
   @include media($tablet) {
     margin-bottom: 120px !important;
   }
   @include media($phone) {
     padding-bottom: 140px !important;
   }
-  padding-top: 50px !important;
   position: relative;
   height: 95vh;
   &__h1{

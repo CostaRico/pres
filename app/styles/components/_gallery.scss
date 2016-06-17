@@ -1,0 +1,39 @@
+.bc-gallery{
+  &__thumbs{
+    a:nth-child(1){
+      img{
+        object-fit: contain;
+        width: 100%;
+        max-height: inherit;
+      }
+      width: 100%;
+      max-height: 80vh;
+      height: inherit;
+      display: block;;
+    }
+
+  }
+}
+.thumbs{
+
+  &__row{
+    margin-top: 15px;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: center;*/
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  &__el{
+    display: inline-block;
+    margin-right: 15px;
+    img{
+      height: 150px;
+      width: 150px;
+      object-fit: cover;
+    }
+  }
+  &__el:last-child{
+    margin-right: 0;
+  }
+}

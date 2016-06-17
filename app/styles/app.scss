@@ -42,6 +42,7 @@ $small-phone: new-breakpoint(max-width 319px 4);
 @import "components/offices-table";
 @import "components/header";
 @import "components/buildings_views";
+@import "components/gallery";
 
 .phone{
   font-family: MuseoSansCyrl-700;
@@ -105,44 +106,6 @@ body{
 }
 
 
-
-
-.bc-gallery{
-  &__thumbs{
-    a:nth-child(1){
-      img{
-        object-fit: contain;
-        width: 100%;
-        max-height: inherit;
-      }
-      width: 100%;
-      max-height: 80vh;
-      height: inherit;
-      display: block;;
-    }
-
-  }
-}
-.thumbs{
-
-  &__row{
-    margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  &__el{
-    margin-right: 15px;
-    img{
-      height: 150px;
-      width: 150px;
-      object-fit: cover;
-    }
-  }
-  &__el:last-child{
-    margin-right: 0;
-  }
-}
 
 
 

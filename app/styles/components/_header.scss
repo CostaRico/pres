@@ -1,5 +1,9 @@
 .presentation{
   &__header {
+    position: fixed;
+    width: 100%;
+    z-index: 888;
+    background: white;
     padding: 0 50px;
     line-height: $header-height;
     height: $header-height;
