@@ -1,5 +1,6 @@
 .mobile-menu{
   display: none;
+
   &.opened{
     display: block;
   }
@@ -27,4 +28,5 @@
       line-height: 100px;
     }
   }
+
 }

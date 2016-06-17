@@ -1,54 +1,81 @@
-.contacts-info{
+.contacts-info {
   width: calc(100% / 3 * 2);
-  &__email-manager{
+  float: left;
+  &__email-manager {
     display: flex;
     flex-direction: row;
   }
-  &__manager{
+  &__manager {
     padding-left: 50px;
     text-align: left;
   }
-  &__email{
+  &__email {
     text-align: left;
   }
-  &__phone{
+  &__phone {
     margin-bottom: 40px;
+
+    @include media($tablet) {
+      .text{
+        font-size: 70%;
+      }
+    }
+    @include media($small-tablet) {
+      .text{
+        font-size: 60%;
+      }
+      .decor{
+        display: none;
+      }
+    }
+    @include media($between-phone-table) {
+      .text{
+        font-size: 50%;
+      }
+      .decor{
+        display: none;
+      }
+    }
+
   }
-  &__table{
+  &__table {
     border-collapse: collapse;
-    .expand{
+    .expand {
       width: 99%;
     }
     width: 50%;
     border: none;
-    td:not(.expand){
+    td:not(.expand) {
       border: none;
       white-space: nowrap;
 
     }
   }
 }
-.contacts{
 
-  &__desktop{
+.contacts {
+
+  &__desktop {
     display: block;
+    width: 100%;
     @include media($big-phone) {
       display: none;
     }
   }
 
-  &__mobile{
+  &__mobile {
     display: none;
     @include media($big-phone) {
-      display: block;
+      display: inline-block;
+      margin: 0 auto;
     }
   }
 
   display: flex;
   flex-direction: row;
   text-align: center;
-  &__photo{
+  &__photo {
     width: calc(100% / 3 * 1);
-    display: inline-block;
+    float: left;
   }
 }

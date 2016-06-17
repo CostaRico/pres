@@ -1,8 +1,8 @@
 
-.second-page-props{
+.second-page-props {
   $cur-height: 132px;
   @include clearfix;
-  &__pare{
+  &__pare {
     @include clearfix;
     border-bottom: none;
 
@@ -12,45 +12,54 @@
       width: 100%;
       border-bottom: 1px solid $border-color;
     }
-    &:last-child{
+    &:last-child {
       border-bottom: none;
     }
 
-    &:last-child{
-      .second-page-props__prop:last-child{
-        .building-prop__wrap:last-child{
+    &:last-child {
+      .second-page-props__prop:last-child {
+        .building-prop__wrap:last-child {
           border-right: none;
         }
       }
     }
 
-
   }
   border-top: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
-  &__prop{
+  &__prop {
     height: $cur-height;
     float: left;
     width: 50%;
     @include media($big-phone) {
       width: 50%;
 
-      &:last-child{
-        .building-prop__wrap{
+      &:last-child {
+        .building-prop__wrap {
           border-right: none;
         }
       }
     }
 
+    @include media($small-phone) {
+      &:first-child{
+        border-bottom: 1px solid $border-color;
+      }
+      width: 100%;
+      .building-prop__wrap {
+        border: none;
+        border-right: none;
+      }
+    }
 
     position: relative;
   }
 
 }
 
-.building-prop{
+.building-prop {
 
-  &__wrap{
+  &__wrap {
     position: absolute;
     top: 50%;
     margin-top: -45px;
@@ -65,15 +74,13 @@
     width: 100%;
     text-align: center;
   }
-  &__icon, &__text{
+  &__icon, &__text {
     display: inline-block;
     line-height: 1em;
   }
-  &__icon{
+  &__icon {
     position: relative;
     top: 10px;
   }
-
-
 
 }

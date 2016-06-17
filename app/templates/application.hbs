@@ -1,33 +1,8 @@
 {{mobile-menu opened=isMobileMenuOpened}}
 <div class="presentation {{if isMobileMenuOpened 'blur'}}">
-    <div class="presentation__header presentation-header">
-        <div class="presentation-header__logo">
-            <img src="/logo.svg"/>
-        </div>
-        <div class="presentation-header__contacts">
-            <div class="text">
-                <span class="presentation-header__post">Персональный консультант</span><span
-                    class="presentation-header__name"> , Алексей Игнатов</span>
-                <span class="mdash">&mdash;</span>
-                <a href="tel:74956461346" class="presentation-header__phone">+7 (495)
-                    646-13-46</a>
-            </div>
-        </div>
-        <div class="presentation-header__menu">
-            <ul class="header-menu">
-                <li><a href="#">Галерея</a></li>
-                <li><a href="#">Площади</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Описание</a></li>
-            </ul>
-            <div class="header-menu-mobile">
-                <div class="header-menu-mobile__switcher">
-                  {{hamb-menu isOpen=isMobileMenuOpened}}
-                </div>
-            </div>
-        </div>
-    </div>
 
+
+    {{header-c}}
 
     <div class="presentation__slide presentation__first-page first-page">
         <div class="first-page__h1">{{{model.h1}}}</div>
@@ -36,7 +11,7 @@
     </div>
 
     <div class="presentation__slide second-page">
-        {{building-view}}
+        {{buildings-view model=model}}
     </div>
 
     <div class="presentation__slide">
@@ -44,7 +19,7 @@
     </div>
 
     <div class="presentation__slide">
-      {{bc-gallery}}
+      {{!bc-gallery}}
     </div>
 
     <div class="presentation__slide gray">

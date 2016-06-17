@@ -61,7 +61,7 @@ export default Ember.Controller.extend({
     });*/
     element.style["background"] = `url(${imgUrl}) no-repeat center center`;
     //element.style["background"] = `url(${imgUrl}) top center`;
-    element.style.backgroundSize = '100%';
+    element.style.backgroundSize = 'cover';
   },
 
   actions: {

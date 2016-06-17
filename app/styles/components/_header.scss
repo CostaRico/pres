@@ -1,0 +1,126 @@
+.presentation{
+  &__header {
+    padding: 0 50px;
+    line-height: $header-height;
+    height: $header-height;
+    @include media($small-tablet) {
+      padding: 0 20px;
+    }
+    @include media($big-phone) {
+      padding: 0 10px;
+    }
+  }
+}
+.presentation-header {
+  @include clearfix;
+  &__logo, &__contacts {
+    float: left;
+  }
+  &__logo {
+    width: 150px;
+    border-right: 1px solid #EEEEEE;
+
+    img {
+      width: 100px;
+      vertical-align: middle;
+    }
+    @include media($small-phone) {
+      border-right: none;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__phone{
+    @extend .phone;
+    @include media($big-phone) {
+      font-size: 90%;
+    }
+  }
+  &__contacts {
+
+    height: 100%;
+    .text{
+      padding-left: 50px;
+      font-size: 16px;
+    }
+  }
+  &__menu {
+    float: right;
+  }
+  .header-menu {
+    @include clearfix;
+    list-style: none;
+    li {
+      float: right;
+      display: inline;
+      margin-left: 40px;
+      a{
+        color: $font-color;
+      }
+      a:hover{
+        color: $active-color;
+      }
+      &.active{
+        a{
+          color: $active-color;
+        }
+      }
+    }
+  }
+
+  .header-menu-mobile{
+    display: none;
+    height: $header-height;
+    line-height: $header-height;
+    &__switcher{
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+
+  }
+  /* responsive*/
+
+  &__short{
+    display: none;
+    @include media($big-phone) {
+      display: block;
+      float:left;
+    }
+  }
+  @include media($tablet) {
+    .header-menu{
+      display: none;
+    }
+    .header-menu-mobile{
+      display: block;
+    }
+  }
+
+  @include media($small-tablet) {
+    &__name{
+      display: none;
+    }
+  }
+  @include media($big-phone) {
+    &__post{
+      display: none;
+    }
+    .mdash{
+      display: none;
+    }
+
+  }
+  @include media($phone){
+    &__contacts{
+      display: none;
+    }
+  }
+  @include media($small-phone) {
+    .header-menu-mobile {
+      display: none;
+    }
+  }
+  /*/responsive*/
+
+}

@@ -1,6 +1,10 @@
 .first-page{
+
+  @include media($tablet) {
+    margin-bottom: 120px !important;
+  }
   @include media($phone) {
-    margin-bottom: 100px !important;
+    padding-bottom: 140px !important;
   }
   padding-top: 50px !important;
   position: relative;
@@ -11,7 +15,11 @@
     color: #222222;
     font-family: MuseoSansCyrl-700;
     @include media($big-phone) {
-      font-size: $h1-small-size;
+      text-align: center;
+      font-size: calc(#{$h1-small-size} * 0.8);
+    }
+    @include media($small-phone) {
+      font-size: calc(#{$h1-small-size} * 0.5);
       text-align: center;
     }
   }
