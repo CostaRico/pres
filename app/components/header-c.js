@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames:['presentation__header presentation-header'],
   didRender(){
 
     window.onscroll = ()=>{
