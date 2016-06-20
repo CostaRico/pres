@@ -3,6 +3,9 @@
  */
 
 export default Ember.Controller.extend({
+  queryParams: ['id'],
+  id: null,
+  editMode: true,
   isMobileMenuOpened: false,
   items: [
     {

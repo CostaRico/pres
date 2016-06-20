@@ -11,125 +11,47 @@
         <td class="offices-table__td">Налогооблажение</td>
         <td class="offices-table__td">Состояние</td>
     </tr>
-    <tr class="offices-table__row">
-        <td class="offices-table__td">Retail 1-2 этажи</td>
-        <td class="offices-table__td">70 – 18 940</td>
-        <td class="offices-table__td">69 299 р.</td>
-        <td class="offices-table__td">включены</td>
-        <td class="offices-table__td">с НДС</td>
-        <td class="offices-table__td">под отделку</td>
-    </tr>
-    <!--<tr class="offices-table__row offices-table__comment">
-        <td colspan="3"></td>
-        <td colspan="3">комментарий: комментарий к блоку здесь</td>
-    </tr>-->
-    <tr class="offices-table__row">
-        <td class="offices-table__td">Retail 1-2 этажи</td>
-        <td class="offices-table__td">70 – 18 940</td>
-        <td class="offices-table__td">69 299 р.</td>
-        <td class="offices-table__td">включены</td>
-        <td class="offices-table__td">с НДС</td>
-        <td class="offices-table__td">под отделку</td>
-    </tr>
-    <!--<tr class="offices-table__row offices-table__comment">
-        <td colspan="3">комментарий:</td>
-        <td colspan="3">комментарий к блоку здесь</td>
-    </tr>-->
-    <tr class="offices-table__row">
-        <td class="offices-table__td">Retail 1-2 этажи</td>
-        <td class="offices-table__td">70 – 18 940</td>
-        <td class="offices-table__td">69 299 р.</td>
-        <td class="offices-table__td">включены</td>
-        <td class="offices-table__td">с НДС</td>
-        <td class="offices-table__td">под отделку</td>
-    </tr>
-    <!--<tr class="offices-table__row offices-table__comment">
-        <td colspan="3">комментарий:</td>
-        <td colspan="3">комментарий к блоку здесь</td>
-    </tr>-->
-
+  {{#each model.blocks as |block|}}
+      <tr class="offices-table__row">
+          <td class="offices-table__td">{{{block.floors}}}</td>
+          <td class="offices-table__td">{{{block.area}}}</td>
+          <td class="offices-table__td">{{{block.price}}}</td>
+          <td class="offices-table__td">{{{block.utilities_costs}}}</td>
+          <td class="offices-table__td">{{{block.taxes}}}</td>
+          <td class="offices-table__td">{{{block.condition}}}</td>
+      </tr>
+  {{/each}}
 </table>
 
 <div class="offices-table-mobile">
-    <div class="offices-table-mobile__office">
-        <table>
-            <tr>
-                <td class="offices-table-mobile__caption" colspan="2">Retail 1-2 этажи</td>
-            </tr>
-            <tr>
-                <td>Площадь, м<sup>2</sup>:</td>
-                <td>70 – 18 940</td>
-            </tr>
-            <tr>
-                <td>Ставка за, м<sup>2</sup>/год:</td>
-                <td>69 299 р.</td>
-            </tr>
-            <tr>
-                <td>Экспл. расходы:</td>
-                <td>включены</td>
-            </tr>
-            <tr>
-                <td>Налогооблажение:</td>
-                <td>с НДС</td>
-            </tr>
-            <tr>
-                <td>Состояние:</td>
-                <td>под отделку</td>
-            </tr>
-        </table>
-    </div>
-    <div class="offices-table-mobile__office">
-        <table>
-            <tr>
-                <td class="offices-table-mobile__caption" colspan="2">Retail 1-2 этажи</td>
-            </tr>
-            <tr>
-                <td>Площадь, м<sup>2</sup>:</td>
-                <td>70 – 18 940</td>
-            </tr>
-            <tr>
-                <td>Ставка за, м<sup>2</sup>/год:</td>
-                <td>69 299 р.</td>
-            </tr>
-            <tr>
-                <td>Экспл. расходы:</td>
-                <td>включены</td>
-            </tr>
-            <tr>
-                <td>Налогооблажение:</td>
-                <td>с НДС</td>
-            </tr>
-            <tr>
-                <td>Состояние:</td>
-                <td>под отделку</td>
-            </tr>
-        </table>
-    </div>
-    <div class="offices-table-mobile__office">
-        <table>
-            <tr>
-                <td class="offices-table-mobile__caption" colspan="2">Retail 1-2 этажи</td>
-            </tr>
-            <tr>
-                <td>Площадь, м<sup>2</sup>:</td>
-                <td>70 – 18 940</td>
-            </tr>
-            <tr>
-                <td>Ставка за, м<sup>2</sup>/год:</td>
-                <td>69 299 р.</td>
-            </tr>
-            <tr>
-                <td>Экспл. расходы:</td>
-                <td>включены</td>
-            </tr>
-            <tr>
-                <td>Налогооблажение:</td>
-                <td>с НДС</td>
-            </tr>
-            <tr>
-                <td>Состояние:</td>
-                <td>под отделку</td>
-            </tr>
-        </table>
-    </div>
+  {{#each model.blocks as |block|}}
+      <div class="offices-table-mobile__office">
+          <table>
+              <tr>
+                  <td class="offices-table-mobile__caption" colspan="2">Этаж {{{block.floors}}}</td>
+              </tr>
+              <tr>
+                  <td>Площадь, м<sup>2</sup>:</td>
+                  <td>{{{block.area}}}</td>
+              </tr>
+              <tr>
+                  <td>Ставка за, м<sup>2</sup>/год:</td>
+                  <td>{{{block.price}}}</td>
+              </tr>
+              <tr>
+                  <td>Экспл. расходы:</td>
+                  <td>{{{block.utilities_costs}}}</td>
+              </tr>
+              <tr>
+                  <td>Налогооблажение:</td>
+                  <td>{{{block.taxes}}}</td>
+              </tr>
+              <tr>
+                  <td>Состояние:</td>
+                  <td>{{{block.condition}}}</td>
+              </tr>
+          </table>
+      </div>
+  {{/each}}
+
 </div>

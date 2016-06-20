@@ -1,31 +1,23 @@
 <div class="second-page-props">
-    <div class="second-page-props__pare">
-        <div class="second-page-props__prop building-prop">
-            <div class="building-prop__wrap">
+  {{#each pares as |pare|}}
+      <div class="second-page-props__pare">
+        {{#each pare as |prop|}}
+            <div class="second-page-props__prop building-prop">
+                <div class="building-prop__wrap">
                     <span class="building-prop__icon">
                       <img width="52" height="52"
                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAABGdBTUEAA1teXP8meAAAA4VJREFUeAHtmUtrU0EUx5uHeSGoKQWhWBCSlZIHCdm2ILoT3Qlu/QAWdCmiXQgutFsX3fgFhFJXLsyirkLeIUUIuBBEUFARDYl5+R/TlElsb87cZG6ncC7czNyZc2bO+d0zr5uFBb6YABNgAkyACTABJsAEmIAVAZdVpVxXLpffuFyuq3KZwfk2bL0Vi8W2KTa6KUJC5gQBEOb6B4PBmshQLi9FaEJmq9/vv5soM+bR7XZvwJgVFYOUIQgAyWTypUonTspi2K4japUgkIeDk4443ZdyJDhlYL1e93W73Xu4a6lU6rXOfo2F0Ov1bsDxJ16vt400oBOCscMBEEL7jvt1AhBtGwtBt+Ny+wyBI2EYDxwJ4GDs6iCP2Ww2e1Z+tspjo+Sxqj+szlgI2P4e2BYOh78fZrxVGc4O5CgnC1p1qKMOThxAsNM+9MkRMVNHdoyj6sCJFkL7nzjSm1Q9nG02IX8RkdSh6hgLQXaA+l1A6OAA9UjWpeSVIeANreRyuQSl8UmZQCDwEw59kMvRnrtWq11qtVpj4Sv6keV05pUheDyeDXHbMQqODQqFwioORLsj/Uql8gDh+9jv1747HnX5X+r0xNjHgeiPbAXGrjggHeulHAk42DzE8XbHjtU+n+9rIpH4JOtieDytVqvbGA5jJ0XAum434uT2KXllCAjdj5lMpkxpnCoDEO8nZUulUnyyTNez08NBlx8ztcsQgE95OMyEXEEZwy6PxeQ37qqCmi1RYyFgAq03Go3FSCRC3vnZIgAlYyEIh6LRqCPLp/Y5oVgsLiGkyX/32X2bs+hphYDd4B2s9V+wn39hx0h8do9gi37Bjq6KjlYIMOSyMAaTXEbFKCErAHQ6nT1sp/fy+fwZVX0Ved0QVGwZk8XOdBnwTqHwNGCcG6uc84OxEObsp2VzDAF4lJdITHS3MeGRvidgVVhFSIs5YRk6m5avA5UYAt/wZehZOp1uTpOdZ70KhAE6dsGxa0jFPfUSAPavJaTro4ejUgAWwD6jfusoGR3lKhCeA8AVVSPgVAB6LYoeZH8BxFuK7DxlyBDi8fj9eXZsUls8MeJtMASGMByUHAngQJ4Yh8yO5zcUCt3FPuMHpXesROcpcrLMiYAAg6fuMUZOSXuTUdHU1FgIzWazFAwGd/FmlY/SANHG3wKvpnrPAkyACTABJsAEmAATYAJMgAlQCfwFccHnViW4fDwAAAAASUVORK5CYII="/>
                       </span>
-                <div class="building-prop__text">
-                    <span>318 000 м<sup>2</sup></span>
-                    <br/>площадь
+                    <div class="building-prop__text">
+                        <span>{{prop.val}}</span>
+                        <br/>{{prop.key}}
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="second-page-props__prop building-prop">
-            <div class="building-prop__wrap">
-                    <span class="building-prop__icon">
-                      <img width="52" height="52"
-                           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAABGdBTUEAA1teXP8meAAAA4VJREFUeAHtmUtrU0EUx5uHeSGoKQWhWBCSlZIHCdm2ILoT3Qlu/QAWdCmiXQgutFsX3fgFhFJXLsyirkLeIUUIuBBEUFARDYl5+R/TlElsb87cZG6ncC7czNyZc2bO+d0zr5uFBb6YABNgAkyACTABJsAEmIAVAZdVpVxXLpffuFyuq3KZwfk2bL0Vi8W2KTa6KUJC5gQBEOb6B4PBmshQLi9FaEJmq9/vv5soM+bR7XZvwJgVFYOUIQgAyWTypUonTspi2K4japUgkIeDk4443ZdyJDhlYL1e93W73Xu4a6lU6rXOfo2F0Ov1bsDxJ16vt400oBOCscMBEEL7jvt1AhBtGwtBt+Ny+wyBI2EYDxwJ4GDs6iCP2Ww2e1Z+tspjo+Sxqj+szlgI2P4e2BYOh78fZrxVGc4O5CgnC1p1qKMOThxAsNM+9MkRMVNHdoyj6sCJFkL7nzjSm1Q9nG02IX8RkdSh6hgLQXaA+l1A6OAA9UjWpeSVIeANreRyuQSl8UmZQCDwEw59kMvRnrtWq11qtVpj4Sv6keV05pUheDyeDXHbMQqODQqFwioORLsj/Uql8gDh+9jv1747HnX5X+r0xNjHgeiPbAXGrjggHeulHAk42DzE8XbHjtU+n+9rIpH4JOtieDytVqvbGA5jJ0XAum434uT2KXllCAjdj5lMpkxpnCoDEO8nZUulUnyyTNez08NBlx8ztcsQgE95OMyEXEEZwy6PxeQ37qqCmi1RYyFgAq03Go3FSCRC3vnZIgAlYyEIh6LRqCPLp/Y5oVgsLiGkyX/32X2bs+hphYDd4B2s9V+wn39hx0h8do9gi37Bjq6KjlYIMOSyMAaTXEbFKCErAHQ6nT1sp/fy+fwZVX0Ved0QVGwZk8XOdBnwTqHwNGCcG6uc84OxEObsp2VzDAF4lJdITHS3MeGRvidgVVhFSIs5YRk6m5avA5UYAt/wZehZOp1uTpOdZ70KhAE6dsGxa0jFPfUSAPavJaTro4ejUgAWwD6jfusoGR3lKhCeA8AVVSPgVAB6LYoeZH8BxFuK7DxlyBDi8fj9eXZsUls8MeJtMASGMByUHAngQJ4Yh8yO5zcUCt3FPuMHpXesROcpcrLMiYAAg6fuMUZOSXuTUdHU1FgIzWazFAwGd/FmlY/SANHG3wKvpnrPAkyACTABJsAEmAATYAJMgAlQCfwFccHnViW4fDwAAAAASUVORK5CYII="/>
-                      </span>
-                <div class="building-prop__text">
-                    <span>318 000 м<sup>2</sup></span>
-                    <br/>площадь
-                </div>
-            </div>
-        </div>
-    </div>
+        {{/each}}
+      </div>
+  {{/each}}
+<!--
     <div class="second-page-props__pare">
 
         <div class="second-page-props__prop building-prop">
@@ -52,7 +44,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
 
 </div>

@@ -1,33 +1,36 @@
 {{mobile-menu opened=isMobileMenuOpened}}
-{{header-c isMobileMenuOpened=isMobileMenuOpened}}
+
+{{header-c isMobileMenuOpened=isMobileMenuOpened }}
 
 <div class="presentation {{if isMobileMenuOpened 'blur'}}">
 
-    <div class="presentation__slide presentation__first-page first-page">
-        <div class="first-page__h1">{{{model.h1}}}</div>
-        <div class="first-page__h2">{{model.h2}}</div>
-        <div class="first-page__badge">{{class-circle}}</div>
-    </div>
+
+  {{#if editMode}}
+    {{editable/first-page model=model}}
+  {{else}}
+    {{first-page model=model}}
+  {{/if}}
+
 
     <div class="presentation__slide second-page">
         {{buildings-view model=model}}
     </div>
 
     <div class="presentation__slide">
-        {{buildings-props}}
+        {{buildings-props model=model}}
     </div>
 
     <div class="presentation__slide">
-      {{bc-gallery}}
+      {{bc-gallery model=model}}
     </div>
 
     <div class="presentation__slide gray">
-        {{buildings-features}}
+        {{buildings-features model=model}}
     </div>
 
 
     <div class="presentation__slide">
-        {{offices-table}}
+        {{offices-table model=model}}
     </div>
 
     <div class="presentation__slide gray">

@@ -75,6 +75,13 @@
   flex-direction: row;
   text-align: center;
   &__photo {
+    img{
+      max-width: 221px;
+      min-width: 200px;
+      height: inherit;
+      object-fit: cover;
+      border-radius: 50%;
+    }
     width: calc(100% / 3 * 1);
     float: left;
   }
