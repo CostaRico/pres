@@ -1,0 +1,70 @@
+.edit-button{
+  a{
+    color: $font-color;
+    border-bottom: 1px dashed;
+  }
+}
+
+.first-building-view-edit-btn{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background: white;
+  opacity: 0.8;
+}
+
+.second-building-view-edit-btn{
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid $font-color;
+  background: white;
+}
+
+.change-building-description{
+  position: absolute;
+  right: 0;
+  top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid $font-color;
+  background: white;
+}
+.change-building-props{
+  position: absolute;
+  right: 0;
+  top: 00px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid $font-color;
+  background: white;
+}
+
+.change-building-gallery{
+  position: absolute;
+  right: 0;
+  top: 00px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid $font-color;
+  background: white;
+}
+
+.change-features-props{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid $font-color;
+  background: white;
+  z-index: 999;
+}
+
+.second-page-props, .bc-gallery, .building-features{
+  position: relative;
+}

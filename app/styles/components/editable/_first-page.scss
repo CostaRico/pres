@@ -1,0 +1,8 @@
+.first-page{
+  position: relative;
+  &__edit-button{
+    position: absolute;
+    right: 30px;
+    z-index: 1999;
+  }
+}

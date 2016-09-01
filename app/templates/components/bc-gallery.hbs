@@ -1,3 +1,25 @@
+{{#if editMode}}
+    <div class="change-building-gallery edit-button">
+        <a {{action 'edit'}} href="#">{{#if (eq openedEditor 'main-pic')}}{{else}}изменить фото{{/if}}</a>
+
+      {{#if (eq openedEditor 'main-pic')}}
+
+        {{#tether-dialog
+        target='.first-page__edit-button a'
+        targetAttachment='bottom left'
+        attachment='top right'
+        close='hide'
+        clickOutsideToClose=true
+        translucentOverlay=false
+        hasOverlay=true
+        }}
+          {{dialogs/select-pic}}
+        {{/tether-dialog}}
+      {{/if}}
+
+    </div>
+{{/if}}
+<h1 style="text-align: center;">{{building.name}} - фото</h1>
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -67,33 +89,17 @@
 
 
 <div class="bc-gallery__thumbs thumbs">
-    <a href="#" class="thumbs__main" {{action 'openGallery' 1 on 'click'}}>
-        <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
+    <a href="#" class="thumbs__main" {{action 'openGallery' 0 on 'click'}}>
+        <img src="http://sophie.of.ru{{building.images.firstObject}}"/>
     </a>
     <div class="thumbs__row">
-        <div class="thumbs__el" {{action 'openGallery' 2 on 'click' }}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
-        <div class="thumbs__el" {{action 'openGallery' 3 on 'click'}}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
-        <div class="thumbs__el" {{action 'openGallery' on 'click' 4}}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
-        <div class="thumbs__el" {{action 'openGallery' on 'click' 5}}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
-        <div class="thumbs__el" {{action 'openGallery' 2 on 'click' }}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
-        <div class="thumbs__el" {{action 'openGallery' 3 on 'click'}}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
-        <div class="thumbs__el" {{action 'openGallery' on 'click' 4}}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
-        <div class="thumbs__el" {{action 'openGallery' on 'click' 5}}>
-            <img src="http://of.ru/images/Object777/f14effe2e0-8.jpg" />
-        </div>
+      {{#each building.images as |image index|}}
+        {{#if (eq index 0)}}
+        {{else}}
+            <div class="thumbs__el" {{action 'openGallery' index on 'click' }}>
+                <img src="http://sophie.of.ru{{image}}"/>
+            </div>
+        {{/if}}
+      {{/each}}
     </div>
 </div>

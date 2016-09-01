@@ -5,8 +5,9 @@
 export default Ember.Controller.extend({
   queryParams: ['id'],
   id: null,
-  editMode: true,
+  editMode: false,
   isMobileMenuOpened: false,
+  openedEditor: false,
   items: [
     {
       src: 'http://placekitten.com/g/600/400',
@@ -68,6 +69,12 @@ export default Ember.Controller.extend({
   },
 
   actions: {
+    setEditableModal(name){
+      this.set('openedEditor', name);
+    },
+    hideEditing(){
+      this.set('openedEditor', false);
+    },
     afterRender(){
       this.send('setBackgrounds');
     },

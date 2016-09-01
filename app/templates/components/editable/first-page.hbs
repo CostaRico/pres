@@ -1,5 +1,21 @@
 <div class="first-page__edit-button edit-button">
-    <a {{action 'edit'}} href="#">редактировать</a>
+    {{#if editMode}}<a {{action 'edit'}} href="#">{{#if (eq openedEditor 'main-pic')}}{{else}}изменить фон{{/if}}</a>{{/if}}
+
+  {{#if (eq openedEditor 'main-pic')}}
+
+    {{#tether-dialog
+    target='.first-page__edit-button a'
+    targetAttachment='bottom left'
+    attachment='top right'
+    close='hide'
+    clickOutsideToClose=true
+    translucentOverlay=false
+    hasOverlay=true
+    }}
+      {{dialogs/select-pic}}
+    {{/tether-dialog}}
+  {{/if}}
+
 </div>
 {{first-page model=model}}
 

@@ -1,0 +1,66 @@
+.building{
+  border: 1px solid $blue-color;
+  //#min-width: 240px;
+  //max-width: 340px;
+  //width: 20%;
+  //float: left;
+  padding: $general-padding;
+  cursor: pointer;
+  //margin: $general-padding;
+
+  @include span-columns(12 of 12);
+  @include media($big){
+    @include omega(4n);
+    @include span-columns(1);
+  }
+
+  @include media($tablet) {
+    @include span-columns(1 of 3);
+    @include omega(3n);
+  }
+  @include media($between-phone-table){
+    @include span-columns(1 of 3);
+    @include omega(3n);
+  }
+  @include media($small-tablet){
+    @include span-columns(1 of 3);
+    @include omega(3n);
+  }
+  @include media($big-phone){
+    @include span-columns(1 of 2);
+    @include omega(2n);
+  }
+
+  /*@include media($between-phone-table){
+    @include span-columns(6 of 12);
+    @include omega(2n);
+  }*/
+
+
+
+  margin-bottom: $general-padding;
+  border-radius: 3px;
+
+  &__image{
+    img{
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+  }
+  &__name{
+    font-size: 14px;
+    height: 24px;
+    margin-bottom: 3px;
+  }
+}
+
+.buildings-list{
+  @include outer-container;
+  max-width: 100%;
+}
+.buildings-list-cont{
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 50px;
+  margin-bottom: 30px;
+}

@@ -5,36 +5,46 @@
 <div class="presentation {{if isMobileMenuOpened 'blur'}}">
 
 
-  {{#if editMode}}
-    {{editable/first-page model=model}}
-  {{else}}
-    {{first-page model=model}}
-  {{/if}}
+  {{editable/first-page editMode=true model=model openedEditor=openedEditor}}
+
+
 
 
     <div class="presentation__slide second-page">
-        {{buildings-view model=model}}
+      {{buildings-list model=model}}
     </div>
 
-    <div class="presentation__slide">
-        {{buildings-props model=model}}
-    </div>
+  {{#each model.buildings as |item|}}
+      <div class="presentation__slide second-page">
+        {{buildings-view editMode=editMode building=item.building openedEditor=openedEditor setEditableModal='setEditableModal' hideEditing='hideEditing'}}
+      </div>
 
-    <div class="presentation__slide">
-      {{bc-gallery model=model}}
-    </div>
+      <div class="presentation__slide">
+        {{buildings-props editMode=editMode building=item.building openedEditor=openedEditor}}
+      </div>
+
+      <div class="presentation__slide">
+        {{bc-gallery editMode=editMode building=item.building openedEditor=openedEditor}}
+      </div>
+
+      <div class="presentation__slide gray">
+        {{buildings-features building=item.building openedEditor=openedEditor}}
+      </div>
+
+      <div class="presentation__slide">
+        {{offices-table blocks=item.blocks}}
+      </div>
+      <hr/>
+      <br/>
+      <br/>
+
+  {{/each}}
+
+
+
 
     <div class="presentation__slide gray">
-        {{buildings-features model=model}}
-    </div>
-
-
-    <div class="presentation__slide">
-        {{offices-table model=model}}
-    </div>
-
-    <div class="presentation__slide gray">
-        {{contacts-c model=model}}
+      {{contacts-c model=model}}
     </div>
 
 

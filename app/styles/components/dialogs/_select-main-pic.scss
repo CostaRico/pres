@@ -1,0 +1,43 @@
+.select-main-pic{
+  width: 800px;
+  &__row:first-child{
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 10px;
+  }
+
+
+}
+.chose-new-pic{
+  padding-top: 15px;
+  @include clearfix;
+  input{
+    max-width: 49%;
+    float: left;
+    height: 40px;
+  }
+  button{
+    padding: 0.45em 1.5em;
+    float: right;
+
+  }
+}
+
+.chose-from-exist{
+  height: 600px;
+  overflow: scroll;
+  a{
+    margin: 10px;
+  }
+  img {
+    border-radius: 5%;
+    border: 2px solid white;
+    &:hover{
+      border: 2px solid $light-active;
+    }
+
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

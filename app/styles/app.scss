@@ -2,7 +2,8 @@
 @import "vendor/bourbon/app/assets/stylesheets/bourbon";
 @import "vendor/bourbon-neat/app/assets/stylesheets/neat";
 @import "fonts";
-
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
 $font-stack-system: 15px;
 $font-color: #222222;
 $header-height: 85px;
@@ -14,15 +15,18 @@ $border-color: #EEEEEE;
 //$bg-color: #bebebe;
 $bg-color: #F7F7F7;
 $bg-border: #dedede;
+$blue-color: #3AAAEE;
 $phone-color: #333333;
 $light-active:#55B6F0;
+$general-padding: 15px;
 
 
 /*Break points*/
-$tablet: new-breakpoint(max-width 1260px 4);
-$small-tablet: new-breakpoint(max-width 910px 4);
-$between-phone-table: new-breakpoint(max-width 850px 4);
-$big-phone: new-breakpoint(max-width 780px 4);
+$big:  new-breakpoint(max-width 40000px min-width 1260px 4);
+$tablet: new-breakpoint(max-width 1260px min-width 910px 12);
+$small-tablet: new-breakpoint(max-width 910px min-width 850px 4);
+$between-phone-table: new-breakpoint(max-width 850px min-width 780px 4);
+$big-phone: new-breakpoint(max-width 780px min-width 400px 4);
 $phone: new-breakpoint(max-width 400px 4);
 $small-phone: new-breakpoint(max-width 319px 4);
 /*/Break points*/
@@ -43,6 +47,9 @@ $small-phone: new-breakpoint(max-width 319px 4);
 @import "components/header";
 @import "components/buildings_views";
 @import "components/gallery";
+@import "components/editable/first-page";
+@import "components/building";
+
 
 .phone{
   font-family: MuseoSansCyrl-700;
@@ -87,6 +94,7 @@ body{
   margin: 0 auto;
 
   &__slide {
+    @include clearfix;
     padding: 0 50px;
     margin-bottom: 50px;
     @include media($big-phone) {
@@ -144,3 +152,5 @@ body{
 
 
 
+@import "components/dialogs/select-main-pic";
+@import "edit-buttons";

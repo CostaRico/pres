@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  pares: Em.computed('model.building.props', function(){
+  pares: Em.computed('building.props', function(){
     let i,j,temparray,chunk = 2, result = [];
-    let array = this.get('model.building.props');
+    let array = this.get('building.props');
     if(!array){
       return [];
     }

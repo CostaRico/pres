@@ -11,7 +11,7 @@
         <td class="offices-table__td">Налогооблажение</td>
         <td class="offices-table__td">Состояние</td>
     </tr>
-  {{#each model.blocks as |block|}}
+  {{#each blocks as |block|}}
       <tr class="offices-table__row">
           <td class="offices-table__td">{{{block.floors}}}</td>
           <td class="offices-table__td">{{{block.area}}}</td>
@@ -24,7 +24,7 @@
 </table>
 
 <div class="offices-table-mobile">
-  {{#each model.blocks as |block|}}
+  {{#each blocks as |block|}}
       <div class="offices-table-mobile__office">
           <table>
               <tr>

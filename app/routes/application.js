@@ -1,6 +1,7 @@
 /**
  * Created by costa on 14.06.16.
  */
+
 export default Ember.Route.extend({
   beforeModel(transition){
     if (!transition.queryParams.id) {
@@ -9,13 +10,21 @@ export default Ember.Route.extend({
     this.set('presID', transition.queryParams.id);
   },
   model(params){
-    return this.getJSON('/presentations/data/landing_data?id=' + this.get('presID')).then(function (json) {
-      // on fulfillment
-      return json;
-    }, function (reason) {
-      // on rejection
-      console.log('Иизвините, произошла ошибка.');
-    });
+    let url = 'http://localhost:3000/presentations/data/landing_data?id=' + this.get('presID');
+    let localUrl = '/presentations/data/landing_data?id='+this.get('presID');
+
+    if (this.get('fastboot.isFastBoot')) {
+
+    }else{
+      return this.getJSON(localUrl).then(function (data) {
+        return data;
+      }, function (reason) {
+        // on rejection
+        console.log('Иизвините, произошла ошибка.');
+      });
+    }
+
+
   },
   getJSON(url) {
     return new Promise(function (resolve, reject) {

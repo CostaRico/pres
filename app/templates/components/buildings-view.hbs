@@ -1,19 +1,100 @@
 <div class="second-page__building building-view">
     <div class="building-view__row">
-        <img class="building-view__img" src="{{model.building.firstImg}}" id="vertical-img"/>
+
+        <div class="first-building-view-edit-btn edit-button">
+          {{#if editMode}}
+            {{#if (eq openedEditor 'first-building-pic1')}}
+            {{else}}
+                <a {{action 'setEditableModal' 'first-building-pic1'}} href="#">изменить изображение</a>
+            {{/if}}
+
+
+            {{#if (eq openedEditor 'first-building-pic1')}}
+              {{#tether-dialog
+              target='.first-building-view-edit-btn'
+              targetAttachment='bottom right'
+              attachment='top left'
+              close='hide'
+              clickOutsideToClose=true
+              translucentOverlay=false
+              hasOverlay=true
+              }}
+                {{dialogs/select-pic}}
+              {{/tether-dialog}}
+            {{/if}}
+          {{/if}}
+        </div>
+        <img class="building-view__img" src="{{building.first_image}}" id="vertical-img"/>
         <div class="building-view__text">
             <div class="building-view__h1 h1-decored">
                 <div class="decor"></div>
-                <div class="text">{{model.building.name}}</div>
+                <div class="text">{{building.name}}</div>
             </div>
-            <div class="building-view__p">{{{model.building.shortDescription}}}</div>
+            <div class="building-view__p">
+              {{#if editMode}}
+                  <div class="change-building-description edit-button">
+
+                    {{#if (eq openedEditor 'building-descr')}}
+                    {{else}}
+                        <a {{action 'setEditableModal' 'building-descr'}} href="#">изменить описание</a>
+                    {{/if}}
+
+
+                    {{#if (eq openedEditor 'building-descr')}}
+
+                      {{#tether-dialog
+                      target='.change-building-description'
+                      targetAttachment='bottom right'
+                      attachment='top right'
+                      close='hide'
+                      clickOutsideToClose=true
+                      translucentOverlay=false
+                      hasOverlay=true
+                      }}
+                        {{dialogs/select-pic}}
+                      {{/tether-dialog}}
+                    {{/if}}
+                  </div>
+              {{/if}}
+
+              {{{building.shortDescription}}}
+
+            </div>
             <div class="building-view__p-decor"></div>
         </div>
     </div>
     <div class="building-view__row second-row">
-        <img class="building-view__img vertical" src="{{model.building.secondImg}}"/>
+      {{#if editMode}}
+          <div class="second-building-view-edit-btn edit-button">
+
+
+            {{#if (eq openedEditor 'first-building-pic2')}}
+            {{else}}
+                <a {{action 'setEditableModal' 'first-building-pic2'}} href="#">изменить изображение</a>
+            {{/if}}
+
+
+            {{#if (eq openedEditor 'first-building-pic2')}}
+
+              {{#tether-dialog
+              target='.second-building-view-edit-btn'
+              targetAttachment='bottom right'
+              attachment='top left'
+              close='hide'
+              clickOutsideToClose=true
+              translucentOverlay=false
+              hasOverlay=true
+              }}
+                {{dialogs/select-pic}}
+              {{/tether-dialog}}
+            {{/if}}
+
+          </div>
+      {{/if}}
+
+        <img class="building-view__img vertical" src="{{building.second_image}}"/>
         <div class="building-view__map" id="building-view-map">
-          {{map-c model=model}}
+          {{map-c model=building}}
         </div>
     </div>
 </div>

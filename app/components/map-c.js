@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     var myMap;
 
     function init(){
-      let coords = [that.get("model.building.coords.lat"), that.get("model.building.coords.lon")];
+      let coords = [that.get("model.coords.lat"), that.get("model.coords.lon")];
       myMap = new ymaps.Map(cont, {
         //center: [55.76, 37.64],
         center: coords,
