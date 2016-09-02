@@ -1,6 +1,7 @@
 $width: 44px;
 $height: 33px;
 $fifth: calc(#{$height} / 5);
+$fifth: -webkit-calc(#{$height} / 5);
 $color: $active-color;
 
 #nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
@@ -23,9 +24,11 @@ $color: $active-color;
   display: block;
   position: absolute;
   height: calc(#{$height} / 5);
+  height: -webkit-calc(#{$height} / 5);
   width: 100%;
   background: $color;
   border-radius: calc(#{$height} / 5);
+  border-radius: -webkit-calc(#{$height} / 5);
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -43,15 +46,21 @@ $color: $active-color;
 }
 
 #nav-icon1 span:nth-child(2) {
+  top: 13.2px;//safari
   top: calc(#{$fifth} * 2);
+  top: -webkit-calc(#{$fifth} * 2);
 }
 
 #nav-icon1 span:nth-child(3) {
+  //safari
   top: calc(#{$fifth} * 4);
+  top: 26.4px;
+  top: -webkit-calc(#{$fifth} * 4);
 }
 
 #nav-icon1.open span:nth-child(1) {
   top: calc(#{$fifth} * 2);
+  top: -webkit-calc(#{$fifth} * 2);
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -o-transform: rotate(135deg);
@@ -65,6 +74,7 @@ $color: $active-color;
 
 #nav-icon1.open span:nth-child(3) {
   top: calc(#{$fifth} * 2);
+  top: -webkit-calc(#{$fifth} * 2);
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
