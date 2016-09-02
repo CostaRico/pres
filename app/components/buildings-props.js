@@ -14,6 +14,8 @@ export default Ember.Component.extend({
     return result;
   }),
   didRender(){
-    window.fitText( document.querySelectorAll(".feature"), 1.2 );
+    window.fitText( document.querySelectorAll(".building-prop"), 1.2, {
+      maxFontSize: '17px'
+    });
   }
 });

@@ -59,6 +59,7 @@ $color: $active-color;
 }
 
 #nav-icon1.open span:nth-child(1) {
+  top: 13.2px;
   top: calc(#{$fifth} * 2);
   top: -webkit-calc(#{$fifth} * 2);
   -webkit-transform: rotate(135deg);
@@ -74,6 +75,7 @@ $color: $active-color;
 
 #nav-icon1.open span:nth-child(3) {
   top: calc(#{$fifth} * 2);
+  top: 13.2px;
   top: -webkit-calc(#{$fifth} * 2);
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
