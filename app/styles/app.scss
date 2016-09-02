@@ -7,9 +7,6 @@ $gutter: 0.4em !default;
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 
-
-
-
 $font-stack-system: 15px;
 $font-color: #222222;
 $header-height: 85px;
@@ -23,20 +20,18 @@ $bg-color: #F7F7F7;
 $bg-border: #dedede;
 $blue-color: #3AAAEE;
 $phone-color: #333333;
-$light-active:#55B6F0;
+$light-active: #55B6F0;
 $general-padding: 15px;
 
-
 /*Break points*/
-$big:  new-breakpoint(max-width 40000px  4);
+$big: new-breakpoint(max-width 40000px 4);
 $tablet: new-breakpoint(max-width 1260px 12);
 $small-tablet: new-breakpoint(max-width 910px 4);
 $between-phone-table: new-breakpoint(max-width 850px 4);
-$big-phone: new-breakpoint(max-width 780px 4);
+$big-phone: new-breakpoint(max-width 760px 4);
 $phone: new-breakpoint(max-width 400px 4);
 $small-phone: new-breakpoint(max-width 319px 4);
 /*/Break points*/
-
 
 @import "vendor/bitters/base";
 @import "mixins";
@@ -56,27 +51,27 @@ $small-phone: new-breakpoint(max-width 319px 4);
 @import "components/editable/first-page";
 @import "components/building";
 
-
-.phone{
+.phone {
   font-family: MuseoSansCyrl-700;
 
   color: $phone-color;
   border-bottom: 1px dashed $phone-color;
-  &:hover{
+  &:hover {
     color: $action-color;
     border-bottom: 1px dashed $action-color;
 
   }
 }
 
-body{
+body {
   background: $bg-color;
 }
-.presentation{
+
+.presentation {
   background: white;
   border-left: 1px solid $bg-border;
   border-right: 1px solid $bg-border;
-  &.blur{
+  &.blur {
     $blur: 5px;
     width: 100%;
     height: 100vh;
@@ -89,6 +84,7 @@ body{
     opacity: 0.95;
   }
 }
+
 .class-circle {
   width: 240px;
   height: 240px;
@@ -106,38 +102,25 @@ body{
     @include media($big-phone) {
       padding: 0 10px;
     }
-    &.gray{
+    &.gray {
       background: #F7F7F7;
       padding-top: 50px;
       padding-bottom: 50px;
     }
 
-
   }
 }
 
-.presentation__slide:last-child{
+.presentation__slide:last-child {
   margin-bottom: 0;
 }
 
-
-
-
-
-.h1-decored{
+.h1-decored {
 
   font-size: 45px;
-  @include media($big-phone) {
-    font-size: 25px;
-    .text{
-      text-align: center;
 
-      width: 100%;
-    }
-
-  }
   @include clearfix;
-  .decor{
+  .decor {
     float: left;
     width: 4px;
     color: #3AAAEE;
@@ -145,18 +128,28 @@ body{
     background: #3AAAEE;
     position: relative;
     top: 16px;
-
-    @include media($big-phone) {
-      display: none;
-    }
   }
-  .text{
+  .text {
     float: left;
     padding-left: 15px;
   }
+  margin-bottom: 15px;
+
+  @include media($big-phone) {
+    font-size: 25px;
+    .text {
+      text-align: center;
+
+      width: 100%;
+    }
+  }
+
+  @include media($big-phone) {
+    .decor {
+      display: none;
+    }
+  }
 }
-
-
 
 @import "components/dialogs/select-main-pic";
 @import "edit-buttons";

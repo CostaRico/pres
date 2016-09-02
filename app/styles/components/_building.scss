@@ -19,9 +19,14 @@
     @include omega(3n);
   }
 
-  @include media(max-width 910px ){
+  @include media(max-width 910px min-width 500px){
     @include span-columns(1 of 2);
     @include omega(2n);
+  }
+
+  @include media(max-width 500px ){
+    @include span-columns(1 of 1);
+    @include omega(1n);
   }
 
   /*@include media($between-phone-table){

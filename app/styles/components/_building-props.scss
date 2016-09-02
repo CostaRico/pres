@@ -78,6 +78,9 @@
     display: inline-block;
     line-height: 1em;
   }
+  &__text{
+    max-width: calc(100% - 56px);
+  }
   &__icon {
     position: relative;
     top: 10px;

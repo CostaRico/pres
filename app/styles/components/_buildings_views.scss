@@ -16,6 +16,8 @@
 
     }
     .text {
+      //white-space: nowrap;
+      max-width: calc(100% - 4px);
       float: left;
       padding-left: 15px;
       @include media($tablet) {

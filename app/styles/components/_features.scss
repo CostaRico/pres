@@ -4,6 +4,7 @@
   flex-wrap: wrap;*/
   @include clearfix;
   &__feature {
+    padding: 5px;
     float: left;
     text-align: center;
     background: white;

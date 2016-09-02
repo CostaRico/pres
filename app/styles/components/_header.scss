@@ -1,4 +1,5 @@
-.presentation{
+$phone-h-height: calc(#{$header-height} - 40px);
+.presentation {
   &__header {
     position: fixed;
     max-width: 1500px;
@@ -18,8 +19,184 @@
     @include media($big-phone) {
       padding: 0 10px;
     }
+    @include media($phone) {
+
+      line-height: $phone-h-height;
+      height: $phone-h-height;
+    }
+
   }
 }
+
+.presentation-header {
+
+  /* Base styles
+  */
+  @include clearfix;
+  &__logo, &__contacts {
+    float: left;
+  }
+
+  .header-menu {
+    @include clearfix;
+    list-style: none;
+    li {
+      float: right;
+      display: inline;
+      margin-left: 40px;
+      a {
+        color: $font-color;
+      }
+      a:hover {
+        color: $active-color;
+      }
+      &.active {
+        a {
+          color: $active-color;
+        }
+      }
+    }
+  }
+
+  .header-menu-mobile {
+    display: none;
+    height: $header-height;
+    line-height: $header-height;
+    &__switcher {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__menu {
+    float: right;
+  }
+
+  &__logo {
+    width: 150px;
+    border-right: 1px solid #EEEEEE;
+
+    img {
+      width: 100px;
+      vertical-align: middle;
+    }
+
+  }
+
+  &__contacts {
+
+    height: 100%;
+    .text {
+      padding-left: 50px;
+      font-size: 16px;
+    }
+  }
+
+  /* Tablet */
+  @include media($tablet) {
+    .header-menu {
+      display: none;
+    }
+    .header-menu-mobile {
+      display: block;
+    }
+  }
+
+  @include media($between-phone-table) {
+    &__contacts {
+      .text {
+        font-size: 14px;
+      }
+    }
+    &__short {
+      display: none;
+    }
+  }
+
+  @include media($big-phone) {
+    &__contacts {
+      .text {
+        font-size: 14px;
+      }
+    }
+
+  }
+
+  /*before  phone*/
+  @include media(new-breakpoint(max-width 720px 4)) {
+    &__post {
+      display: none;
+    }
+    &__contacts {
+      .text {
+        font-size: 16px;
+        padding-left: 10px;
+      }
+    }
+  }
+  @include media(new-breakpoint(max-width 480px 4)) {
+
+    &__contacts {
+      .text {
+        font-size: 15px;
+        padding-left: 10px;
+      }
+      .mdash {
+        display: none;
+      }
+
+    }
+    &__short{
+      display: inline-block;
+    }
+    &__name {
+      display: none;
+    }
+  }
+
+  /* Phones */
+  @include media($phone) {
+    .header-menu-mobile {
+      height: $phone-h-height;
+      line-height: $phone-h-height;
+    }
+    &__logo {
+      width: 115px;
+    }
+  }
+
+  @include media(new-breakpoint(max-width 355px 4)) {
+    &__short{
+      display: none;
+    }
+    &__contacts {
+      .text {
+        font-size: 14px;
+        padding-left: 5px;
+      }
+    }
+  }
+  /* Small phones */
+  @include media($small-phone) {
+    .header-menu-mobile {
+      display: none;
+    }
+
+    &__contacts{
+      width: 100%;
+      text-align: center;
+    }
+    &__logo {
+      border-right: none;
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+}
+
+/*
 .presentation-header {
   @include clearfix;
   &__logo, &__contacts {
@@ -88,12 +265,16 @@
 
 
   }
-  /* responsive*/
+  !* responsive*!
 
   &__short{
     display: none;
     @include media($big-phone) {
       display: block;
+      float:left;
+    }
+    @include media($small-tablet) {
+      display: none;
       float:left;
     }
   }
@@ -106,11 +287,7 @@
     }
   }
 
-  @include media($small-tablet) {
-    &__name{
-      display: none;
-    }
-  }
+
   @include media($big-phone) {
     &__post{
       display: none;
@@ -120,6 +297,19 @@
     }
 
   }
+
+  @include media($small-tablet) {
+    &__name{
+      display: inline;
+    }
+    &__post{
+      display: none;
+    }
+    .mdash{
+      display: inline;
+    }
+  }
+
   @include media($phone){
     &__contacts{
       display: none;
@@ -130,6 +320,7 @@
       display: none;
     }
   }
-  /*/responsive*/
+  !*!responsive*!
 
 }
+*/

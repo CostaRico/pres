@@ -1,10 +1,14 @@
-.first-page{
-  padding-top: calc(#{$header-height} + 50px) !important;
+div.first-page{
+  padding-top: calc(#{$header-height} + 50px);
+  @include media($big-phone) {
+    padding-top: calc(#{$header-height});
+  }
+
   @include media($tablet) {
-    margin-bottom: 120px !important;
+    margin-bottom: 30px !important;
   }
   @include media($phone) {
-    padding-bottom: 140px !important;
+    margin-bottom: 20px !important;
   }
   position: relative;
   height: 95vh;
@@ -13,9 +17,17 @@
     line-height: 70px;
     color: #222222;
     font-family: MuseoSansCyrl-700;
-    @include media($big-phone) {
+    @include media($tablet) {
       text-align: center;
       font-size: calc(#{$h1-small-size} * 0.8);
+      line-height: 35px;
+      margin-bottom: 10px;
+    }
+    @include media($big-phone) {
+      text-align: center;
+      font-size: calc(#{$h1-small-size} * 0.5);
+      line-height: 25px;
+      margin-bottom: 5px;
     }
     @include media($small-phone) {
       font-size: calc(#{$h1-small-size} * 0.5);
@@ -23,9 +35,10 @@
     }
   }
   &__h2{
-    font-size: $h2-size;
+    font-size: calc(#{$h2-size} * 0.5);
+
     text-transform: uppercase;
-    @include media($big-phone) {
+    @include media($tablet) {
       text-align: center;
     }
   }

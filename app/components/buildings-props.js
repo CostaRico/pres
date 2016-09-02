@@ -12,5 +12,8 @@ export default Ember.Component.extend({
       result.push(temparray);
     }
     return result;
-  })
+  }),
+  didRender(){
+    window.fitText( document.querySelectorAll(".feature"), 1.2 );
+  }
 });
