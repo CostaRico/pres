@@ -63,7 +63,7 @@ export default Ember.Controller.extend({
     prefixes.forEach(el=>{
       element.style[el] = '100%';
     });*/
-    imgUrl = 'http://sophie.of.ru'+imgUrl;
+    imgUrl = 'http://sophie.of.ru/system/pres'+imgUrl;
     element.style["background"] = `url(${imgUrl}) no-repeat center center`;
     //element.style["background"] = `url(${imgUrl}) top center`;
     element.style.backgroundSize = 'cover';
