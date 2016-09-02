@@ -9,24 +9,17 @@
   //margin: $general-padding;
 
   @include span-columns(12 of 12);
-  @include media($big){
+  @include media(new-breakpoint(max-width 40000px min-width 1260px 4)){
     @include omega(4n);
     @include span-columns(1);
   }
 
-  @include media($tablet) {
+  @include media(max-width 1260px min-width 910px 12) {
     @include span-columns(1 of 3);
     @include omega(3n);
   }
-  @include media($between-phone-table){
-    @include span-columns(1 of 3);
-    @include omega(3n);
-  }
-  @include media($small-tablet){
-    @include span-columns(1 of 3);
-    @include omega(3n);
-  }
-  @include media($big-phone){
+
+  @include media(max-width 910px ){
     @include span-columns(1 of 2);
     @include omega(2n);
   }

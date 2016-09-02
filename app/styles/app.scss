@@ -1,9 +1,15 @@
 @import "vendor/normalizer";
+
+$gutter: 0.4em !default;
 @import "vendor/bourbon/app/assets/stylesheets/bourbon";
 @import "vendor/bourbon-neat/app/assets/stylesheets/neat";
 @import "fonts";
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
+
+
+
+
 $font-stack-system: 15px;
 $font-color: #222222;
 $header-height: 85px;
@@ -22,11 +28,11 @@ $general-padding: 15px;
 
 
 /*Break points*/
-$big:  new-breakpoint(max-width 40000px min-width 1260px 4);
-$tablet: new-breakpoint(max-width 1260px min-width 910px 12);
-$small-tablet: new-breakpoint(max-width 910px min-width 850px 4);
-$between-phone-table: new-breakpoint(max-width 850px min-width 780px 4);
-$big-phone: new-breakpoint(max-width 780px min-width 400px 4);
+$big:  new-breakpoint(max-width 40000px  4);
+$tablet: new-breakpoint(max-width 1260px 12);
+$small-tablet: new-breakpoint(max-width 910px 4);
+$between-phone-table: new-breakpoint(max-width 850px 4);
+$big-phone: new-breakpoint(max-width 780px 4);
 $phone: new-breakpoint(max-width 400px 4);
 $small-phone: new-breakpoint(max-width 319px 4);
 /*/Break points*/
