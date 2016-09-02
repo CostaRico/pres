@@ -2,9 +2,9 @@
     <div class="mobile-menu__hamb">
       {{hamb-menu isOpen=opened}}
     </div>
-    <ul class="mobile-menu__list">
-        <li>Карта</li>
-        <li>Контакты</li>
-        <li>Объекты</li>
+    <ul class="mobile-menu__list" {{action 'clicked'}}>
+        <li>{{scroll-to href='#buildings-map' label='Карта' beforeScroll='beforeScroll'}}</li>
+        <li>{{scroll-to href='#contacts' label='Контакты' beforeScroll='beforeScroll'}}</li>
+        <li>{{scroll-to href='#buildings' label='Объекты' beforeScroll='beforeScroll'}}</li>
     </ul>
 </div>
