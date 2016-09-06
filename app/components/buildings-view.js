@@ -38,7 +38,7 @@ export default Ember.Component.extend({
         res.push(`http://sophie.of.ru/${el.attributes.url}`);
       });
       this.set('preloadedPics', Ember.A(res));
-    })
+    }, error=>{console.log(error);})
   }.on('didReceiveAttrs'),
 
 
