@@ -11,18 +11,18 @@ export default Ember.Route.extend({
   },
   model(params){
     let url = 'http://localhost:3000/presentations/data/landing_data?id=' + this.get('presID');
-    let localUrl = '/presentations/data/landing_data?id='+this.get('presID');
+    let localUrl = '/presentations/data/landing_data?id=' + this.get('presID');
 
-    if (this.get('fastboot.isFastBoot')) {
+    //if (this.get('fastboot.isFastBoot')) {
 
-    }else{
-      return this.getJSON(localUrl).then(function (data) {
-        return data;
-      }, function (reason) {
-        // on rejection
-        console.log('Иизвините, произошла ошибка.');
-      });
-    }
+    //}else{
+    return this.getJSON(localUrl).then(function (data) {
+      return data;
+    }, function (reason) {
+      // on rejection
+      console.log('Извините, произошла ошибка.');
+    });
+    //}
 
 
   },
