@@ -4,7 +4,7 @@
 
 <div class="presentation {{if isMobileMenuOpened 'blur'}}">
 
-  {{editable/first-page saveConfig='saveConfig' editMode=true config=newConfig.first_slide model=model openedEditor=openedEditor config=model.first_slide}}
+  {{first-page model=model.first_slide}}
 
     <div class="presentation__slide second-page">
       {{buildings-list model=model}}
@@ -13,26 +13,20 @@
   {{#each model.buildings as |item|}}
       <div class="presentation__slide second-page">
         {{buildings-view
-          editMode=true
           building=item.building
-          config=newConfig.buildings
-          openedEditor=openedEditor
-          setEditableModal='setEditableModal'
-          hideEditing='hideEditing'
-          saveConfig='saveConfig'
         }}
       </div>
 
       <div class="presentation__slide">
-        {{buildings-props editMode=false building=item.building openedEditor=openedEditor}}
+        {{buildings-props building=item.building}}
       </div>
 
       <div class="presentation__slide">
-        {{bc-gallery editMode=false building=item.building openedEditor=openedEditor}}
+        {{bc-gallery building=item.building}}
       </div>
 
       <div class="presentation__slide gray">
-        {{buildings-features building=item.building openedEditor=openedEditor}}
+        {{buildings-features building=item.building}}
       </div>
 
       <div class="presentation__slide">
@@ -49,7 +43,7 @@
 
     <div class="presentation__slide gray">
         <a href="#" id="contacts" class="just-anchor"></a>
-      {{contacts-c model=model editMode=true setEditableModal='setEditableModal' openedEditor=openedEditor}}
+      {{contacts-c model=model}}
     </div>
 
 
