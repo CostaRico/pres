@@ -1,0 +1,6 @@
+{{#each toEdit as |prop index|}}
+    <div class="prop-editor">
+        <label>Значение №{{increase index}}</label>
+      {{icons/prop-svg class='prop-svg'}} {{input value=prop.key}}: {{input value=prop.val}}
+    </div>
+{{/each}}

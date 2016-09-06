@@ -4,6 +4,10 @@ export default Ember.Component.extend({
   classNames: ['map page__map'],
   didRender(){
 
+    if(this.get('myMap')){
+      return;
+    }
+
     let that = this;
     let selector = '#'+this.get('elementId')+' .map__container';
     let cont = document.querySelector(selector);
@@ -27,6 +31,8 @@ export default Ember.Component.extend({
       if(w < 500){
         myMap.behaviors.disable("drag");
       }
+
+      that.set('myMap', myMap);
     }
   }
 });

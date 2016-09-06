@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['buildings-list-cont'],
+  scroller: Ember.inject.service(),
   buildings: Ember.computed(function(){
     return [
       {
@@ -26,8 +27,17 @@ export default Ember.Component.extend({
       }
     ]
   }),
+  actions:{
+    jumpToBld(item){
+      let sel =`#bld_${item.building.id}`;
+      this.get('scroller').scrollVertical(sel);
+    }
+  },
   didRender(){
 
+    if(this.get('myMap')){
+      return;
+    }
     let that = this;
     let selector = '#'+this.get('elementId')+' .map-cont';
     let cont = document.querySelector(selector);
@@ -67,6 +77,7 @@ export default Ember.Component.extend({
       );
       myMap.setZoom(centerAndZoom.zoom-0.2);
       myMap.setCenter(centerAndZoom.center);
+      that.set('myMap', myMap);
     }
   }
 });

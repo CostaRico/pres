@@ -1,29 +1,86 @@
-<div class="second-page__building building-view">
+<div class="second-page__building building-view" id="{{buildingIdClean}}">
+  {{#if editMode}}
+    {{#if (eq openedEditor buildingIdClean)}}
+    {{else}}
+        <div class="first-page__edit-button edit-button">
+            <a {{action 'setEditableModal' buildingIdClean}} href="#">параметры слайда</a>
+        </div>
+    {{/if}}
+
+    {{#if (eq openedEditor buildingIdClean)}}
+      {{#tether-dialog
+      target=buildingId
+      targetAttachment='top right'
+      attachment='top right'
+      close='hide'
+      clickOutsideToClose=true
+      translucentOverlay=false
+      hasOverlay=true
+      }}
+
+
+        {{#dialogs/tabbed-dialog saveConfig='saveConfig'}}
+          {{#dialogs/tab-d id='image1' label='Изображение 1' isActive=true}}
+            {{selectedURL}}
+            {{
+              dialogs/select-pic
+              selectedURL=bldConfig.first_image
+              imageID='presentation'
+              modelCtrl='buildings'
+              modelID=building.id
+              type='presentation_images'
+              preloadedPics=preloadedPics
+            }}
+
+
+          {{/dialogs/tab-d}}
+
+          {{#dialogs/tab-d id='image2' label='Изображение 2'}}
+            {{dialogs/select-pic
+                selectedURL=bldConfig.second_image
+                imageID='presentation'
+                modelCtrl='buildings'
+                modelID=building.id
+                type='presentation_images'
+                preloadedPics=preloadedPics
+            }}
+          {{/dialogs/tab-d}}
+
+          {{#dialogs/tab-d id='text' label='Текст'}}
+              <p>Название БЦ: {{input value=bldConfig.name}}</p>
+              <p>Короткое описание: {{textarea value=bldConfig.shortDescription rows="6"}}</p>
+              <!--<p>Цвет:
+                  <select style="display: inline;">
+                      <option>черный</option>
+                      <option>белый</option>
+                  </select>
+              </p>-->
+          {{/dialogs/tab-d}}
+
+          {{#dialogs/tab-d id='main-props' label='Основные свойства'}}
+            {{main-props-editor config=bldConfig path='props'}}
+          {{/dialogs/tab-d}}
+
+          {{#dialogs/tab-d id='second-props' label='Доп. свойства'}}
+            {{main-props-editor config=bldConfig path='features'}}
+          {{/dialogs/tab-d}}
+
+          {{#dialogs/tab-d id='gallery' label='Галерея'}}
+              В разработке
+          {{/dialogs/tab-d}}
+
+          {{#dialogs/tab-d id='blocks' label='Блоки'}}
+              {{blocks-editor config=blocksConfig comment=bldConfig.blocks_comment}}
+          {{/dialogs/tab-d}}
+
+        {{/dialogs/tabbed-dialog}}
+      {{/tether-dialog}}
+    {{/if}}
+
+  {{/if}}
     <div class="building-view__row">
 
-        <div class="first-building-view-edit-btn edit-button">
-          {{#if editMode}}
-            {{#if (eq openedEditor 'first-building-pic1')}}
-            {{else}}
-                <a {{action 'setEditableModal' 'first-building-pic1'}} href="#">изменить изображение</a>
-            {{/if}}
 
-
-            {{#if (eq openedEditor 'first-building-pic1')}}
-              {{#tether-dialog
-              target='.first-building-view-edit-btn'
-              targetAttachment='bottom right'
-              attachment='top left'
-              close='hide'
-              clickOutsideToClose=true
-              translucentOverlay=false
-              hasOverlay=true
-              }}
-                {{dialogs/select-pic}}
-              {{/tether-dialog}}
-            {{/if}}
-          {{/if}}
-        </div>
         <img class="building-view__img" src="{{building.first_image}}" id="vertical-img"/>
         <div class="building-view__text">
             <div class="building-view__h1 h1-decored">
@@ -31,31 +88,7 @@
                 <div class="text">{{building.name}}</div>
             </div>
             <div class="building-view__p">
-              {{#if editMode}}
-                  <div class="change-building-description edit-button">
 
-                    {{#if (eq openedEditor 'building-descr')}}
-                    {{else}}
-                        <a {{action 'setEditableModal' 'building-descr'}} href="#">изменить описание</a>
-                    {{/if}}
-
-
-                    {{#if (eq openedEditor 'building-descr')}}
-
-                      {{#tether-dialog
-                      target='.change-building-description'
-                      targetAttachment='bottom right'
-                      attachment='top right'
-                      close='hide'
-                      clickOutsideToClose=true
-                      translucentOverlay=false
-                      hasOverlay=true
-                      }}
-                        {{dialogs/select-pic}}
-                      {{/tether-dialog}}
-                    {{/if}}
-                  </div>
-              {{/if}}
 
               {{{building.shortDescription}}}
 
@@ -64,33 +97,6 @@
         </div>
     </div>
     <div class="building-view__row second-row">
-      {{#if editMode}}
-          <div class="second-building-view-edit-btn edit-button">
-
-
-            {{#if (eq openedEditor 'first-building-pic2')}}
-            {{else}}
-                <a {{action 'setEditableModal' 'first-building-pic2'}} href="#">изменить изображение</a>
-            {{/if}}
-
-
-            {{#if (eq openedEditor 'first-building-pic2')}}
-
-              {{#tether-dialog
-              target='.second-building-view-edit-btn'
-              targetAttachment='bottom right'
-              attachment='top left'
-              close='hide'
-              clickOutsideToClose=true
-              translucentOverlay=false
-              hasOverlay=true
-              }}
-                {{dialogs/select-pic}}
-              {{/tether-dialog}}
-            {{/if}}
-
-          </div>
-      {{/if}}
 
         <img class="building-view__img vertical" src="{{building.second_image}}"/>
         <div class="building-view__map" id="building-view-map">

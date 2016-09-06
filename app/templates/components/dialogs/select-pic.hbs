@@ -1,43 +1,22 @@
 <div class="select-main-pic__row chose-new-pic">
-    <input type="file" class="chose-new-pic__input" />
-    <button>выбрать фото</button>
+    <!--<input type="file" class="chose-new-pic__input" />-->
+  {{#if loadingOtherPics}}
+    Загрузка пользовательских фото..
+  {{/if}}
+
+  {{if uploadingPhotos 'Загрузка фото на сервер..'}}
+    <form class="ajax-upload" action="" method="post" enctype="multipart/form-data">
+        <input type="file" class="chose-new-pic__input" name="image[picture]">
+    </form>
+
+
 </div>
 <div class="select-main-pic__row chose-from-exist">
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
-    <a href="">
-        <img width="200" src="/main_pic.png" />
-    </a>
+
+    {{#each preloaded as |url|}}
+        <a href="#" {{action 'selectURL' url}} >
+            <img width="200" src="{{url}}" class="{{if (eq url selectedURL) 'selected'}}" />
+        </a>
+    {{/each}}
 
 </div>

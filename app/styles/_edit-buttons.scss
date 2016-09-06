@@ -1,4 +1,10 @@
 .edit-button{
+  padding: 5px;
+  border: 1px solid;
+  background: rgba(white, 0.2);
+  &:hover{
+    background: rgba(white, 0.8);
+  }
   a{
     color: $font-color;
     border-bottom: 1px dashed;
@@ -13,6 +19,7 @@
   border-radius: 5px;
   background: white;
   opacity: 0.8;
+  z-index: 500;
 }
 
 .second-building-view-edit-btn{

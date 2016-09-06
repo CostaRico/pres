@@ -4,10 +4,13 @@
 </div>
 
 <a href="#" id="buildings" class="just-anchor"></a>
+<p>
+    * Кликните по объекту для просмотра детальной информации
+</p>
 
 <div class="buildings-list">
   {{#each model.buildings as |item|}}
-      <div class="buildings-list__building building">
+      <div class="buildings-list__building building" {{action 'jumpToBld' item}}>
           <div class="building__row building__name">{{item.building.name}}</div>
           <div class="building__row building__image">
               <img src="{{item.building.first_image}}"/>
@@ -25,6 +28,4 @@
 <a href="#" id="buildings-map" class="just-anchor"></a>
 <div class="map-cont"></div>
 
-<p>
-    * Кликните по объекту для просмотра детальной информации
-</p>
+

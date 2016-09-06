@@ -1,0 +1,28 @@
+{{#each config as |block|}}
+  <div class="block-cont">
+      <label class="bl-label">Блок {{block.area}}м<sup>2</sup></label>
+      <div class="block-cont__props">
+          <div class="prop-editor">
+            <span>Этаж:</span> {{input value=block.floors}}
+          </div>
+          <div class="prop-editor">
+            <span>Площадь:</span> {{input value=block.area}}
+          </div>
+          <div class="prop-editor">
+            <span>Стоимость/ставка:</span> {{input value=block.price}}
+          </div>
+          <div class="prop-editor">
+            <span>Эксплуатация:</span> {{input value=block.utilities_costs}}
+          </div>
+          <div class="prop-editor">
+            <span>Налоги:</span> {{input value=block.taxes}}
+          </div>
+          <div class="prop-editor">
+            <span>Состояние:</span> {{input value=block.condition}}
+          </div>
+      </div>
+  </div>
+{{/each}}
+
+<label class="bl-label">Комментарий к блокам</label>
+{{textarea value=comment rows="6"}}

@@ -4,11 +4,7 @@
 
 <div class="presentation {{if isMobileMenuOpened 'blur'}}">
 
-
-  {{editable/first-page editMode=editMode model=model openedEditor=openedEditor}}
-
-
-
+  {{editable/first-page saveConfig='saveConfig' editMode=true config=newConfig.first_slide model=model openedEditor=openedEditor config=model.first_slide}}
 
     <div class="presentation__slide second-page">
       {{buildings-list model=model}}
@@ -16,15 +12,23 @@
 
   {{#each model.buildings as |item|}}
       <div class="presentation__slide second-page">
-        {{buildings-view editMode=editMode building=item.building openedEditor=openedEditor setEditableModal='setEditableModal' hideEditing='hideEditing'}}
+        {{buildings-view
+          editMode=true
+          building=item.building
+          config=newConfig.buildings
+          openedEditor=openedEditor
+          setEditableModal='setEditableModal'
+          hideEditing='hideEditing'
+          saveConfig='saveConfig'
+        }}
       </div>
 
       <div class="presentation__slide">
-        {{buildings-props editMode=editMode building=item.building openedEditor=openedEditor}}
+        {{buildings-props editMode=false building=item.building openedEditor=openedEditor}}
       </div>
 
       <div class="presentation__slide">
-        {{bc-gallery editMode=editMode building=item.building openedEditor=openedEditor}}
+        {{bc-gallery editMode=false building=item.building openedEditor=openedEditor}}
       </div>
 
       <div class="presentation__slide gray">
@@ -45,7 +49,7 @@
 
     <div class="presentation__slide gray">
         <a href="#" id="contacts" class="just-anchor"></a>
-      {{contacts-c model=model}}
+      {{contacts-c model=model editMode=true setEditableModal='setEditableModal' openedEditor=openedEditor}}
     </div>
 
 

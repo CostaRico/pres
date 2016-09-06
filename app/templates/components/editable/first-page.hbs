@@ -1,21 +1,45 @@
-<div class="first-page__edit-button edit-button">
-    {{#if editMode}}<a {{action 'edit'}} href="#">{{#if (eq openedEditor 'main-pic')}}{{else}}изменить фон{{/if}}</a>{{/if}}
-
+{{#if editMode}}
+  {{#if (eq openedEditor 'main-pic')}}{{else}}
+      <div class="first-page__edit-button edit-button">
+          <a {{action 'edit'}} href="#">параметры слайда</a>
+      </div>
+  {{/if}}
   {{#if (eq openedEditor 'main-pic')}}
+  {{!#if true}}
 
     {{#tether-dialog
-    target='.first-page__edit-button a'
-    targetAttachment='bottom left'
+    target='.first-page'
+    targetAttachment='150px right'
     attachment='top right'
     close='hide'
     clickOutsideToClose=true
     translucentOverlay=false
     hasOverlay=true
+    container-class='settings-dialog'
     }}
-      {{dialogs/select-pic}}
+      {{#dialogs/tabbed-dialog saveConfig='saveConfig'}}
+        {{#dialogs/tab-d id='background' label='Фоновое изображение' isActive=true}}
+          {{dialogs/select-pic selectedURL=localConfig.backgroundPhoto
+            preloadedPics=preloadedPics
+            imageID='firstSlidePic'
+            modelCtrl='presentations'
+            modelID=model.id
+          }}
+        {{/dialogs/tab-d}}
+
+        {{#dialogs/tab-d id='text' label='Заголовок'}}
+            <p>Название компании: {{input value=localConfig.clientName}}</p>
+            <p>Цвет:
+                <select style="display: inline;" onchange={{action "setColor" value="target.value"}}>
+                    <option selected="{{if (eq 'black' localConfig.font_color) 'selected' ''}}" value="black">черный</option>
+                    <option selected="{{if (eq 'white' localConfig.font_color) 'selected' ''}}" value="white">белый</option>
+                </select>
+            </p>
+        {{/dialogs/tab-d}}
+
+      {{/dialogs/tabbed-dialog}}
     {{/tether-dialog}}
   {{/if}}
-
-</div>
-{{first-page model=model}}
+{{/if}}
+{{first-page model=model config=config}}
 

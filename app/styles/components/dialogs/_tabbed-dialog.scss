@@ -1,0 +1,48 @@
+.settings-dialog {
+
+  max-height: 60vh !important;
+  height: 100% !important;
+}
+
+.tabbed-dialog {
+  min-width: 1000px;
+  width: 80vw;
+  max-width: 1200px;
+  //height: 40vh;
+  .save-button{
+    float: right;
+    button{
+      padding: 0.45em 1.5em;
+      font-size: 13px;
+      position: relative;
+      top: -4px;
+    }
+  }
+  height: 100%;
+  .tab-d {
+    overflow: scroll;
+    //height: calc(100% - 45px);
+    max-height: inherit;
+    height: calc(100% - 45px);
+    &.hidden {
+      display: none;
+    }
+  }
+  &__tabs {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 3px;
+
+    li {
+      display: inline;
+      padding-left: 10px;
+      cursor: pointer;
+      &:hover {
+
+      }
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+

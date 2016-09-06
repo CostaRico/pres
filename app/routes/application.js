@@ -26,6 +26,9 @@ export default Ember.Route.extend({
 
 
   },
+  afterModel(model){
+    this.controllerFor('application').set('newConfig', model);
+  },
   getJSON(url) {
     return new Promise(function (resolve, reject) {
       var xhr = new XMLHttpRequest();
