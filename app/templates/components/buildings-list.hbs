@@ -15,9 +15,12 @@
           <div class="building__row building__image">
               <img src="{{item.building.first_image}}"/>
           </div>
-          <div class="building__row">
-              м.{{item.building.station}}
-          </div>
+          {{#each item.building.stations as |metro|}}
+              <div class="building__row">
+                  м.{{metro.name}} - {{metro.time}} {{metro.type}}
+              </div>
+          {{/each}}
+
           <div class="building__row">
               Класс {{item.building.bc_class}}
           </div>
