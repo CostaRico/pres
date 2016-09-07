@@ -81,7 +81,7 @@ export default Ember.Component.extend({
     let id = this.get('modelID');
     let ctrl = this.get('modelCtrl');
 
-    return `/${ctrl}/${id}/images?type=${type}`;
+    return `/api/${ctrl}/${id}/images?type=${type}`;
   }),
   actions: {
     selectURL(url){
