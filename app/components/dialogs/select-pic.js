@@ -43,7 +43,7 @@ export default Ember.Component.extend({
     }).then(({data})=>{
       let res = [];
       data.forEach(el=>{
-        res.push(el.attributes.url);
+        res.push(`http://sophie.of.ru${el.attributes.url}`);
       });
       that.set('otherPics', res);
       that.set('loadingOtherPics', false);
