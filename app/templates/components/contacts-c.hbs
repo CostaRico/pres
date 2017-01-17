@@ -1,61 +1,19 @@
 <div class="contacts">
-  {{#if editMode}}
-    {{#if (eq openedEditor 'contact-editor')}}
-    {{else}}
-        <div class="first-page__edit-button edit-button">
-            <a {{action 'setEditableModal' 'contact-editor'}} href="#">параметры слайда</a>
-        </div>
-    {{/if}}
-
-    {{#if (eq openedEditor 'contact-editor')}}
-      {{#tether-dialog
-      target='.contacts'
-      targetAttachment='top right'
-      attachment='bottom right'
-      close='hide'
-      clickOutsideToClose=true
-      translucentOverlay=false
-      hasOverlay=true
-      container-class='settings-dialog'
-      }}
-
-
-        {{#dialogs/tabbed-dialog}}
-          {{#dialogs/tab-d id='image1' label='Фото 1' isActive=true}}
-            {{dialogs/select-pic}}
-          {{/dialogs/tab-d}}
-
-
-
-          {{#dialogs/tab-d id='text' label='Текстовая информация'}}
-              <p>Название компании: <input type="text"/></p>
-              <p>Цвет:
-                  <select style="display: inline;">
-                      <option>черный</option>
-                      <option>белый</option>
-                  </select>
-              </p>
-          {{/dialogs/tab-d}}
-        {{/dialogs/tabbed-dialog}}
-      {{/tether-dialog}}
-    {{/if}}
-
-  {{/if}}
     <div class="contacts__desktop">
         <div class="contacts__info contacts-info">
             <div class="contacts-info__phone">
                 <div class="h1-decored">
                     <div class="decor"></div>
-                    <div class="text">Позвоните нам: <a class="phone" href="tel:123123">+7 (495) 646-13-46</a></div>
+                    <div class="text">Позвоните нам: <a class="phone" href="tel:{{model.broker.phone}}">{{model.broker.phone}}</a></div>
                 </div>
             </div>
             <div class="contacts-info__email-manager">
                 <div class="contacts-info__email">
                     Или напишите:<br/>
-                    <a href="mailto:info@of.ru">info@of.ru</a>
+                    <a href="mailto:info@of.ru">{{model.broker.email}}</a>
                 </div>
                 <div class="contacts-info__manager">
-                    Персональный менеджер &mdash; {{model.broker.name}}<br/>
+                  {{model.broker.post}} &mdash; {{model.broker.name}}<br/>
                     ответит на все ваши вопросы
                 </div>
             </div>
@@ -65,9 +23,9 @@
         </div>
     </div>
     <div class="contacts__mobile contacts-mobile">
-        <h2>Позвоните нам: <br/><a class="phone" href="tel:123123">+7 (495) 646-13-46</a></h2>
-        <p>Или напишите: <a href="mailto:info@of.ru">info@of.ru</a></p>
+        <h2>Позвоните нам: <br/><a class="phone" href="tel:{{model.broker.phone}}">{{model.broker.phone}}</a></h2>
+        <p>Или напишите: <a href="mailto:{{model.broker.email}}">{{model.broker.email}}</a></p>
         <img src="http://sophie.of.ru{{model.broker.photo}}"/>
-        <p>Персональный&nbsp;менеджер&nbsp;– {{model.broker.name}}, ответит на все ваши вопросы. </p>
+        <p>{{model.broker.post}} – {{model.broker.name}}, ответит на все ваши вопросы. </p>
     </div>
 </div>

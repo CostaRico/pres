@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
   editMode: true,
   isMobileMenuOpened: false,
   openedEditor: false,
+  fastboot: Ember.inject.service(),
   items: [
     {
       src: 'http://placekitten.com/g/600/400',
@@ -57,16 +58,7 @@ export default Ember.Controller.extend({
   },
 
   setBackground(element, imgUrl){
-    /*let prefixes = ["-webkit-background-size",
-      "-moz-background-size",
-      "-o-background-size",
-      "background-size"];
-    prefixes.forEach(el=>{
-      element.style[el] = '100%';
-    });*/
-    //imgUrl = 'http://sophie.of.ru/system/pres'+imgUrl;
     element.style["background"] = `url(${imgUrl}) no-repeat center center`;
-    //element.style["background"] = `url(${imgUrl}) top center`;
     element.style.backgroundSize = 'cover';
   },
 
@@ -106,28 +98,11 @@ export default Ember.Controller.extend({
 
     },
     setBackgrounds(){
-
-      //Main image
-      let firstPage = document.querySelectorAll('div.first-page')[0];
-      let imgUrl = this.get('model.first_slide.backgroundPhoto');
-      this.setBackground(firstPage, imgUrl);
-
-      //Building-view images
-     /* let firstBuilingImageEl = document.querySelectorAll('div.building-view__img')[0];
-      let secondBuilingImageEl = document.querySelectorAll('div.building-view__img')[1];
-
-      let firstBuildingImageUrl = this.get('model.building.firstImg');
-      let secondBuildingImageUrl = this.get('model.building.secondImg');
-
-
-      this.setBackground(firstBuilingImageEl, firstBuildingImageUrl);
-      this.setBackground(secondBuilingImageEl, secondBuildingImageUrl);*/
-
-
-
-      //this.setBackground(firstPage, imgUrl);
-
-
+      if (typeof document !== 'undefined' && document !== null){
+        let firstPage = document.querySelectorAll('div.first-page')[0];
+        let imgUrl = this.get('model.first_slide.backgroundPhoto');
+        this.setBackground(firstPage, imgUrl);
+      }
     }
   }
 });
