@@ -83,7 +83,6 @@ export default Ember.Controller.extend({
     },
     saveConfig(localConfPath, data){
       this.set('newConfig'+localConfPath, data);
-
       let r = new XMLHttpRequest();
       let that = this;
       r.open("POST", "/presentations/data/update_config", true);

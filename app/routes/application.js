@@ -12,6 +12,7 @@ export default Ember.Route.extend({
   model(params){
     let url = 'http://localhost:3000/presentations/data/landing_data?id=' + this.get('presID');
     let localUrl = '/presentations/data/landing_data?id='+this.get('presID');
+    //let localUrl = '/presentations/data/landing_data?id=11';
 
     if (this.get('fastboot.isFastBoot')) {
 

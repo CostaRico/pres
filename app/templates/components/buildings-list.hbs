@@ -13,7 +13,7 @@
       <div class="buildings-list__building building" {{action 'jumpToBld' item}}>
           <div class="building__row building__name">{{item.building.name}}</div>
           <div class="building__row building__image">
-              <img src="{{item.building.first_image}}"/>
+              <img src="{{item.building.first_image_avatar}}"/>
           </div>
           {{#each item.building.stations as |metro|}}
               <div class="building__row">

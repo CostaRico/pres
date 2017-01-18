@@ -47,6 +47,7 @@ export default Ember.Component.extend({
       this.sendAction('setEditableModal', p);
     },
     saveConfig(){
+      debugger;
       this.sendAction('saveConfig', 'buildings', this.get('config'));
     },
     editFirstPic(){
