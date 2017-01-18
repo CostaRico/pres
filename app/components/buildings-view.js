@@ -35,7 +35,7 @@ export default Ember.Component.extend({
     getJSON(`/buildings/${buildingID}/images?type=public_images`).then(({data})=>{
       let res = [];
       data.forEach(el=>{
-        res.push(`http://sophie.of.ru/${el.attributes.url}`);
+        res.push(`http://sophie.of.ru${el.attributes.url}`);
       });
       this.set('preloadedPics', Ember.A(res));
     }, err=>{console.log(err);})
